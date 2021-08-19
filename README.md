@@ -1,17 +1,17 @@
 # devops-netology
-Репозиторий для занятий
-Добавил строку жофажщоифжщоцфижщоицфжщоци
-Добавил еще одну  строку жофажщоифжщоцфижщоицфжщоци
-
-**/.terraform/*
-*.tfstate
-*.tfstate.*
-carash.log
-*.tfvars
-override.tf
-override.ts.json
-*_override.tf
-*_override.tf.json
-.terraformrc
-terraform.rc
+Репозиторий для занятий<p>
+Добавил строку жофажщоифжщоцфижщоицфжщоци<p>
+Добавил еще одну  строку жофажщоифжщоцфижщоицфжщоци<p>
+<p>
+\**/.terraform/*<p>
+*.tfstate<p>
+*.tfstate.*<p>
+carash.log<p>
+*.tfvars<p>
+override.tf<p>
+override.ts.json<p>
+*_override.tf<p>
+*_override.tf.json<p>
+.terraformrc<p>
+terraform.rc<p>
 
