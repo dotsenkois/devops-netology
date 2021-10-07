@@ -2,6 +2,7 @@
 bakend(node 01)	192.168.1.100<br>
 bakend(node 02)	192.168.1.101<br>
 
+
 ```
 root@vagrant:~# curl 192.168.1.10 |grep h1
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
