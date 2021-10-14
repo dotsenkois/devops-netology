@@ -66,7 +66,7 @@ result_os = os.popen(' && '.join(bash_command)).read()
 prepare_result = []
 
 abspath=os.path.abspath(bash_command[0].replace("cd ", ""))
-print(f'Путь к репозиторию: {abspath.replace("/~","")}')
+tmp=abspath.replace("/~","")
 is_change = False
 for result in result_os.split('\n'):
         if result.find('modified') != -1:
@@ -77,8 +77,8 @@ no_duplicate=sorted(list(set(prepare_result)))
 if is_change:
         print('Список измененных файлов:')
         for i in no_duplicate:
-                print(i)
-        print()
+                print(f'{tmp}/{i}')
+print()
 else:
         print('Измененных файлов нет.')
  
