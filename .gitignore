@@ -1,2 +1,12 @@
 .idea
 .git
+/04-script-01-bash/1.sh
+/04-script-01-bash/2.sh
+/04-script-01-bash/curl.log
+/04-script-01-bash/error.log
+/04-script-02-py/git_request.py
+/04-script-02-py/ip_host_test.py
+/.vscode/launch.json
+/04-script-02-py/main.py
+/04-script-02-py/test.py
+/04-script-01-bash/tnc.log
