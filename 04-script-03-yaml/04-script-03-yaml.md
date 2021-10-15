@@ -70,5 +70,43 @@ if __name__== "__main__":
    * Перекодировать данные из исходного формата во второй доступный (из JSON в YAML, из YAML в JSON)
    * При обнаружении ошибки в исходном файле - указать в стандартном выводе строку с ошибкой синтаксиса и её номер
    * Полученный файл должен иметь имя исходного файла, разница в наименовании обеспечивается разницей расширения файлов
+```python3
+import sys
+import json
+import yaml
+from yaml.loader import SafeLoader
 
+
+def json_parse(file_name):
+    try:
+        with open(file_name, "r") as js:
+            j = json.load(js)
+            with open("export.yaml", "w") as ex:
+                yaml.dump(j, ex)
+    except ValueError:
+        yaml_parse(file_name)
+
+
+def yaml_parse(file_name):
+    try:
+        with open(file_name, "r") as yam:
+            y = yaml.load(yam, Loader=SafeLoader)
+            if type(y) is dict:
+                with open('export.json', "w") as ex:
+                    json.dump(y, ex)
+            else:
+                print('Файл не является JSON или YAML')
+    except ValueError:
+        print('Файл не является JSON или YAML')
+
+
+def main():
+    file_name = sys.argv[1].replace(".\\", '')
+    json_parse(file_name)
+
+
+if __name__ == "__main__":
+    main()
+    
+```
 ---
