@@ -34,7 +34,7 @@ Hey, Netology
 Сценарий:
 
 - Высоконагруженное монолитное java веб-приложение;
-- Nodejs веб-приложение;
+- Nodejs веб-приложение - D
 - Мобильное приложение c версиями для Android и iOS;
 - Шина данных на базе Apache Kafka;
 - Elasticsearch кластер для реализации логирования продуктивного веб-приложения - три ноды elasticsearch, два logstash и две ноды kibana;
@@ -55,3 +55,6 @@ Hey, Netology
 Воспроизвести практическую часть лекции самостоятельно.
 
 Соберите Docker образ с Ansible, загрузите на Docker Hub и пришлите ссылку вместе с остальными ответами к задачам.
+
+[dotsenkois/ansible](https://hub.docker.com/repository/docker/dotsenkois/ansible)
+
