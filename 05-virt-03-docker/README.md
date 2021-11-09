@@ -63,6 +63,26 @@ Hey, Netology
 - Добавьте еще один файл в папку ```/data``` на хостовой машине;
 - Подключитесь во второй контейнер и отобразите листинг и содержание файлов в ```/data``` контейнера.
 
+```
+root@server1:/data# docker run --tty --detach --name deb_neto --volume /data:/data debian
+134ea25fdb8d0a554b57def840e6fe04a82de3b70f5ee30c821e273a19397f0d
+root@server1:/data# docker run --tty --detach --name cent_neto --volume /data:/data centos
+102ec8b3c4df17a9e49a10bd2bbb327766a5d22e2b911c6a7959d258696d6340
+root@server1:/data# docker exec -it cent_neto bash
+[root@102ec8b3c4df /]# cd /data/
+[root@102ec8b3c4df data]# ls
+[root@102ec8b3c4df data]# touch some_file_form_cent
+[root@102ec8b3c4df data]# exit
+exit
+root@server1:/data# touch /data/some_file_from_host
+root@server1:/data# docker exec -it deb_neto bash
+root@134ea25fdb8d:/# ls /data/
+some_file_form_cent  some_file_from_host
+root@134ea25fdb8d:/#
+exit
+root@server1:/data#
+```
+
 ## Задача 4 (*)
 
 Воспроизвести практическую часть лекции самостоятельно.
