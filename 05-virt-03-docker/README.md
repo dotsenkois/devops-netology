@@ -20,7 +20,20 @@ Hey, Netology
 </body>
 </html>
 ```
-Опубликуйте созданный форк в своем репозитории и предоставьте ответ в виде ссылки на https://hub.docker.com/username_repo.
+Опубликуйте созданный форк в своем репозитории и предоставьте ответ в виде ссылки на [dotsenkois/nginx_netology](https://hub.docker.com/repository/docker/dotsenkois/nginx_netology).
+```
+vagrant@server1:~/share$ sudo docker run --tty --detach --name nginx_netology --volume ${HOME}/share:/usr/share/nginx/html --publish=80:80 nginx
+c4c79bd56a1f88253f4e5d50c5a27fc573d6e42f067d14a58ce21b3dac3cd092
+vagrant@server1:~/share$ curl localhost
+<html>
+<head>
+Hey, Netology
+</head>
+<body>
+<h1>I’m DevOps Engineer!</h1>
+</body>
+</html>
+```
 
 ## Задача 2
 
