@@ -33,3 +33,7 @@
 05-virt-04-docker-compose/assets/yc_01.png
 05-virt-04-docker-compose/assets/yc_02.png
 04-script-03-yaml/import sys.py
+05-virt-04-docker-compose/src/terraform/.terraform/providers/registry.terraform.io/yandex-cloud/yandex/0.66.0/windows_amd64/CHANGELOG.md
+05-virt-04-docker-compose/src/terraform/.terraform/providers/registry.terraform.io/yandex-cloud/yandex/0.66.0/windows_amd64/LICENSE
+05-virt-04-docker-compose/src/terraform/.terraform/providers/registry.terraform.io/yandex-cloud/yandex/0.66.0/windows_amd64/README.md
+05-virt-04-docker-compose/src/terraform/.terraform/providers/registry.terraform.io/yandex-cloud/yandex/0.66.0/windows_amd64/terraform-provider-yandex_v0.66.0.exe
