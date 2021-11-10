@@ -10,3 +10,26 @@
 /04-script-02-py/main.py
 /04-script-02-py/test.py
 /04-script-01-bash/tnc.log
+05-virt-04-docker-compose/src/ansible/ansible.cfg
+05-virt-04-docker-compose/src/ansible/inventory
+05-virt-04-docker-compose/src/ansible/provision.yml
+05-virt-04-docker-compose/src/ansible/stack/.env
+05-virt-04-docker-compose/src/ansible/stack/docker-compose.yaml
+05-virt-04-docker-compose/src/ansible/stack/alertmanager/config.yml
+05-virt-04-docker-compose/src/ansible/stack/caddy/Caddyfile
+05-virt-04-docker-compose/src/ansible/stack/exporters/docker-compose.exporters.yaml
+05-virt-04-docker-compose/src/ansible/stack/grafana/provisioning/dashboards/dashboard.yml
+05-virt-04-docker-compose/src/ansible/stack/grafana/provisioning/dashboards/general_docker_host.json
+05-virt-04-docker-compose/src/ansible/stack/grafana/provisioning/dashboards/general_monitor_services.json
+05-virt-04-docker-compose/src/ansible/stack/grafana/provisioning/datasources/datasource.yml
+05-virt-04-docker-compose/src/ansible/stack/prometheus/alert.rules
+05-virt-04-docker-compose/src/ansible/stack/prometheus/prometheus.yml
+05-virt-04-docker-compose/src/packer/centos-7-base.json
+05-virt-04-docker-compose/src/terraform/network.tf
+05-virt-04-docker-compose/src/terraform/node01.tf
+05-virt-04-docker-compose/src/terraform/output.tf
+05-virt-04-docker-compose/src/terraform/provider.tf
+05-virt-04-docker-compose/src/terraform/variables.tf
+05-virt-04-docker-compose/assets/yc_01.png
+05-virt-04-docker-compose/assets/yc_02.png
+04-script-03-yaml/import sys.py
