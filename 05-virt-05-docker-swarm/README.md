@@ -29,7 +29,9 @@ docker node ls
 ```
 docker service ls
 ```
-
+<p align="center">
+  <img width="1200" height=600" src="./assets/3.png">
+</p>
 ## Задача 4 (*)
 
 Выполнить на лидере Docker Swarm кластера команду (указанную ниже) и дать письменное описание её функционала, что она делает и зачем она нужна:
@@ -37,4 +39,3 @@ docker service ls
 # см.документацию: https://docs.docker.com/engine/swarm/swarm_manager_locking/
 docker swarm update --autolock=true
 ```
-ро
