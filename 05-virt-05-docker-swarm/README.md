@@ -16,6 +16,10 @@
 ```
 docker node ls
 ```
+<p align="center">
+  <img width="1200" height=600" src="./assets/2.png">
+</p>
+
 
 ## Задача 3
 
@@ -33,3 +37,4 @@ docker service ls
 # см.документацию: https://docs.docker.com/engine/swarm/swarm_manager_locking/
 docker swarm update --autolock=true
 ```
+ро
