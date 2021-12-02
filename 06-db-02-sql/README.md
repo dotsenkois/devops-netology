@@ -87,6 +87,7 @@ select фамилия from clients WHERE заказ is not null;
   <img src="./04.png">
 </p>
 
+
 ## Задача 5
 
 <p align="center">
@@ -99,16 +100,20 @@ select фамилия from clients WHERE заказ is not null;
 - rows=527 width=32  - *предположительно высота и ширина выводимой таблицы в пикселях*
 - Output: "фамилия" - *возвращаются значчения колонки "фамилия"*
 Filter: (clients."заказ" IS NOT NULL)  - *фильтр поиска (WHERE)*
-```
+
 
 ## Задача 6
 
-Создайте бэкап БД test_db и поместите его в volume, предназначенный для бэкапов (см. Задачу 1).
-
-Остановите контейнер с PostgreSQL (но не удаляйте volumes).
-
-Поднимите новый пустой контейнер с PostgreSQL.
-
-Восстановите БД test_db в новом контейнере.
-
 Приведите список операций, который вы применяли для бэкапа данных и восстановления. 
+
+instance 1:
+- pg_dump -U user > /var/lib/postgresql/test_db.dump
+instance 2:
+- [манифест](docker-compose_06.yml)
+- psql -U user -d neto_pgdb
+- CREATE DATABASE "test_db";
+- psql -U user test_db < /var/lib/postgresql/test_db.dump
+
+<p align="center">
+  <img src="./06.png">
+</p>
