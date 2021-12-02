@@ -15,9 +15,11 @@
   <img src="./02_0.png">
 </p>
 - SQL-запрос для выдачи списка пользователей с правами над таблицами test_db
+
 ```sql
 select * from information_schema.table_privileges where table_name in ('clients','orders') and grantee not in (user);
 ```
+
 - список пользователей с правами над таблицами test_db
 <p align="center">
   <img src="./02_1.png">
