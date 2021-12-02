@@ -71,15 +71,18 @@ select count(*) from orders;
 ## Задача 4
 
 Приведите SQL-запросы для выполнения данных операций.
-```sqlUPDATE clients SET заказ = 3 WHERE фамилия = 'Иванов Иван Иванович';
+```sql
+UPDATE clients SET заказ = 3 WHERE фамилия = 'Иванов Иван Иванович';
 UPDATE clients SET заказ = 4 WHERE фамилия = 'Петров Петр Петрович';
 UPDATE clients SET заказ = 5 WHERE фамилия = 'Иоганн Себастьян Бах';
 ```
 
 Приведите SQL-запрос для выдачи всех пользователей, которые совершили заказ, а также вывод данного запроса.
+
 ```sql
 select фамилия from clients WHERE заказ is not null;
 ```
+
 <p align="center">
   <img src="./04.png">
 </p>
