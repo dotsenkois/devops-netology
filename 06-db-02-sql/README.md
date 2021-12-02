@@ -1,7 +1,27 @@
 # Домашнее задание к занятию "6.2. SQL"
 
 ## Задача 1
-[docker-compose манифест](docker-compose_01.yml)
+docker-compose манифест
+
+```YAML
+version: '3.1'
+services:
+  db:
+    image: postgres:12
+    restart: always
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: neto_pgdb
+      PGDATA: "/var/lib/postgresql/data/pgdata"
+    volumes:
+      - .PG/data:/var/lib/postgresql/data
+      - .PG/bkp:/var/lib/postgresql
+    ports:
+      - "5432:5432"
+
+
+```
 
 ## Задача 2
 
