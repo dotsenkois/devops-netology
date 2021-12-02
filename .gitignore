@@ -143,3 +143,4 @@
 05-virt-05-docker-swarm/src/terraform/.terraform/providers/registry.terraform.io/yandex-cloud/yandex/0.66.0/linux_amd64/LICENSE
 05-virt-05-docker-swarm/src/terraform/.terraform/providers/registry.terraform.io/yandex-cloud/yandex/0.66.0/linux_amd64/README.md
 05-virt-05-docker-swarm/src/terraform/.terraform/providers/registry.terraform.io/yandex-cloud/yandex/0.66.0/linux_amd64/terraform-provider-yandex_v0.66.0
+06-db-02-sql/.PG/*.*
