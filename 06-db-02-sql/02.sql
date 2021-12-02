@@ -9,6 +9,7 @@ CREATE TABLE orders (
     );
 CREATE TABLE clients (
     id                  serial primary key,
+    фамилия             TEXT,
     "страна проживания" CHAR(20),
     заказ               integer,
     foreign key (заказ) REFERENCES orders (id)
