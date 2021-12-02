@@ -1,37 +1,20 @@
 # Домашнее задание к занятию "6.2. SQL"
 
 ## Задача 1
-
-Используя docker поднимите инстанс PostgreSQL (версию 12) c 2 volume, 
-в который будут складываться данные БД и бэкапы.
-
-Приведите получившуюся команду или docker-compose манифест.
+[docker-compose манифест](docker-compose_01.yml)
 
 ## Задача 2
 
-В БД из задачи 1: 
-- создайте пользователя test-admin-user и БД test_db
-- в БД test_db создайте таблицу orders и clients (спeцификация таблиц ниже)
-- предоставьте привилегии на все операции пользователю test-admin-user на таблицы БД test_db
-- создайте пользователя test-simple-user  
-- предоставьте пользователю test-simple-user права на SELECT/INSERT/UPDATE/DELETE данных таблиц БД test_db
-
-Таблица orders:
-- id (serial primary key)
-- наименование (string)
-- цена (integer)
-
-Таблица clients:
-- id (serial primary key)
-- фамилия (string)
-- страна проживания (string, index)
-- заказ (foreign key orders)
+[файл запросов](02.sql) <br>
 
 Приведите:
-- итоговый список БД после выполнения пунктов выше,
-- описание таблиц (describe)
+- [итоговый список БД после выполнения пунктов выше](02_0.png)
+- [описание таблиц (describe)](02_0.png)
 - SQL-запрос для выдачи списка пользователей с правами над таблицами test_db
-- список пользователей с правами над таблицами test_db
+```sql
+select * from information_schema.table_privileges where table_name in ('clients','orders') and grantee not in (user);
+```
+- [список пользователей с правами над таблицами test_db](02_1.png)
 
 ## Задача 3
 
