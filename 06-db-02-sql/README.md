@@ -8,13 +8,20 @@
 [файл запросов](02.sql) <br>
 
 Приведите:
-- [итоговый список БД после выполнения пунктов выше](02_0.png)
-- [описание таблиц (describe)](02_0.png)
+
+- итоговый список БД после выполнения пунктов выше
+- описание таблиц (describe)
+<p align="center">
+  <img src="./02_0.png">
+</p>
 - SQL-запрос для выдачи списка пользователей с правами над таблицами test_db
 ```sql
 select * from information_schema.table_privileges where table_name in ('clients','orders') and grantee not in (user);
 ```
-- [список пользователей с правами над таблицами test_db](02_1.png)
+- список пользователей с правами над таблицами test_db
+<p align="center">
+  <img src="./02_1.png">
+</p>
 
 ## Задача 3
 
