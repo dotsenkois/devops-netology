@@ -47,33 +47,26 @@ select * from information_schema.table_privileges where table_name in ('clients'
 
 ## Задача 3
 
-Используя SQL синтаксис - наполните таблицы следующими тестовыми данными:
+```sql
+INSERT INTO orders (наименование, цена) VALUES ('Шоколад', 10);
+INSERT INTO orders (наименование, цена) VALUES ('Принтер', 3000);
+INSERT INTO orders (наименование, цена) VALUES ('Книга', 500);
+INSERT INTO orders (наименование, цена) VALUES ('Монитор', 7000);
+INSERT INTO orders (наименование, цена) VALUES ('Гитара', 4000);
+INSERT INTO clients (фамилия, "страна проживания") VALUES ('Иванов Иван Иванович', 'USA');
+INSERT INTO clients (фамилия, "страна проживания") VALUES ('Петров Петр Петрович', 'Canada');
+INSERT INTO clients (фамилия, "страна проживания") VALUES ('Иоганн Себастьян Бах', 'Japan');
+INSERT INTO clients (фамилия, "страна проживания") VALUES ('Ронни Джеймс Дио', 'Russia');
+INSERT INTO clients (фамилия, "страна проживания") VALUES ('Ritchie Blackmore', 'Russia');
 
-Таблица orders
+select count(*) from clients;
+select count(*) from orders;
+```
 
-|Наименование|цена|
-|------------|----|
-|Шоколад| 10 |
-|Принтер| 3000 |
-|Книга| 500 |
-|Монитор| 7000|
-|Гитара| 4000|
+<p align="center">
+  <img src="./03.png">
+</p>
 
-Таблица clients
-
-|ФИО|Страна проживания|
-|------------|----|
-|Иванов Иван Иванович| USA |
-|Петров Петр Петрович| Canada |
-|Иоганн Себастьян Бах| Japan |
-|Ронни Джеймс Дио| Russia|
-|Ritchie Blackmore| Russia|
-
-Используя SQL синтаксис:
-- вычислите количество записей для каждой таблицы 
-- приведите в ответе:
-    - запросы 
-    - результаты их выполнения.
 
 ## Задача 4
 
