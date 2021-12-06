@@ -1,4 +1,8 @@
 version: '3.1'
+
+volumes:
+  test_data:
+
 services:
   db:
     image: postgres:13
@@ -9,7 +13,7 @@ services:
       POSTGRES_DB: neto_pgdb
       PGDATA: "/var/lib/postgresql/data/pgdata"
     volumes:
-      - test_data:/var/lib/postgresql/data
+      - test_data:/var/lib/postgresql/data/pgdata
     ports:
       - "5432:5432"
 

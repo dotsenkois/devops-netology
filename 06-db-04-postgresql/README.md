@@ -9,11 +9,11 @@
 Воспользуйтесь командой `\?` для вывода подсказки по имеющимся в `psql` управляющим командам.
 
 **Найдите и приведите** управляющие команды для:
-- вывода списка БД
-- подключения к БД
-- вывода списка таблиц
-- вывода описания содержимого таблиц
-- выхода из psql
+- вывода списка БД **\l[+]   [PATTERN]      list databases**
+- подключения к БД **\c[onnect] {[DBNAME|- USER|- HOST|- PORT|-] | conninfo} connect to new database (currently neto_pgdb")**
+- вывода списка таблиц **\dt[S+] [PATTERN]      list tables**
+- вывода описания содержимого таблиц **\d[S+]  NAME           describe table, view, sequence, or index**
+- выхода из psql **Use \q to quit.**
 
 ## Задача 2
 
