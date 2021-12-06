@@ -31,6 +31,15 @@
 с наибольшим средним значением размера элементов в байтах.
 
 **Приведите в ответе** команду, которую вы использовали для вычисления и полученный результат.
+```sql
+
+SELECT attname, avg_width FROM pg_stats
+WHERE avg_width = (SELECT MAX(avg_width) FROM pg_stats where tablename = 'orders' ) ;
+```
+
+<p align="center">
+  <img src="./screens/02.select.png">
+</p>
 
 ## Задача 3
 
