@@ -28,6 +28,7 @@ CREATE TABLE public.orders (
     id integer NOT NULL,
     title character varying(80) NOT NULL,
     price integer DEFAULT 0
+    CONSTRAINT unique_title UNIQUE (title)
 );
 
 
