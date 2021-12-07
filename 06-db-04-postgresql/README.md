@@ -69,6 +69,14 @@ insert into orders select * from orders_old;
 
 ## Задача 4
 
-Используя утилиту `pg_dump` создайте бекап БД `test_database`.
+Используя утилиту `pg_dump` создайте [бекап](dump.sql) БД `test_database`.
 
 Как бы вы доработали бэкап-файл, чтобы добавить уникальность значения столбца `title` для таблиц `test_database`?
+```sql
+CREATE TABLE public.orders (
+    id integer NOT NULL,
+    title character varying(80) NOT NULL,
+    price integer DEFAULT 0
+    CONSTRAINT unique_title UNIQUE (title)
+);
+```
