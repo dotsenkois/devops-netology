@@ -48,8 +48,24 @@ WHERE avg_width = (SELECT MAX(avg_width) FROM pg_stats where tablename = 'orders
 провести разбиение таблицы на 2 (шардировать на orders_1 - price>499 и orders_2 - price<=499).
 
 Предложите SQL-транзакцию для проведения данной операции.
+```sql
+alter table orders rename to orders_old;
+create table orders (like orders_old) partition by range (price);
+
+CREATE TABLE orders_1
+    PARTITION OF orders
+    FOR VALUES FROM (499) TO (999999999);
+
+CREATE TABLE orders_2
+    PARTITION OF orders
+    FOR VALUES FROM (0) TO (499);
+
+insert into orders select * from orders_old;
+```
 
 Можно ли было изначально исключить "ручное" разбиение при проектировании таблицы orders?
+<br>
+*** Исключить ручное разбиени было можно на этапе проектирвоаниея системы предусмотрев создание таблиц необходимых для шардирования***
 
 ## Задача 4
 
