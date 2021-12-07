@@ -24,6 +24,7 @@
 <p align="center">
   <img src="./01.select.png">
 </p>
+
 ## Задача 2
 
 Создайте пользователя test в БД c паролем test-pass, используя:
@@ -39,6 +40,9 @@
     
 Используя таблицу INFORMATION_SCHEMA.USER_ATTRIBUTES получите данные по пользователю `test` и 
 **приведите в ответе к задаче**.
+<p align="center">
+  <img src="./02.create-grant.png">
+</p>
 
 ## Задача 3
 
