@@ -31,6 +31,15 @@
 с наибольшим средним значением размера элементов в байтах.
 
 **Приведите в ответе** команду, которую вы использовали для вычисления и полученный результат.
+```sql
+
+SELECT attname, avg_width FROM pg_stats
+WHERE avg_width = (SELECT MAX(avg_width) FROM pg_stats where tablename = 'orders' ) ;
+```
+
+<p align="center">
+  <img src="./screens/02.select.png">
+</p>
 
 ## Задача 3
 
@@ -39,11 +48,35 @@
 провести разбиение таблицы на 2 (шардировать на orders_1 - price>499 и orders_2 - price<=499).
 
 Предложите SQL-транзакцию для проведения данной операции.
+```sql
+alter table orders rename to orders_old;
+create table orders (like orders_old) partition by range (price);
+
+CREATE TABLE orders_1
+    PARTITION OF orders
+    FOR VALUES FROM (499) TO (999999999);
+
+CREATE TABLE orders_2
+    PARTITION OF orders
+    FOR VALUES FROM (0) TO (499);
+
+insert into orders select * from orders_old;
+```
 
 Можно ли было изначально исключить "ручное" разбиение при проектировании таблицы orders?
+<br>
+*** Исключить ручное разбиени было можно на этапе проектирвоаниея системы предусмотрев создание таблиц необходимых для шардирования***
 
 ## Задача 4
 
-Используя утилиту `pg_dump` создайте бекап БД `test_database`.
+Используя утилиту `pg_dump` создайте [бекап](dump.sql) БД `test_database`.
 
 Как бы вы доработали бэкап-файл, чтобы добавить уникальность значения столбца `title` для таблиц `test_database`?
+```sql
+CREATE TABLE public.orders (
+    id integer NOT NULL,
+    title character varying(80) NOT NULL,
+    price integer DEFAULT 0
+    CONSTRAINT unique_title UNIQUE (title)
+);
+```
