@@ -151,3 +151,6 @@
 06-db-03-mysql/README.md
 .gitignore
 06-db-03-mysql/mysql/data/*
+06-db-05-elasticsearch/elasticsearch-7.16.0/*
+
+06-db-05-elasticsearch/elasticsearch-7.16.0-linux-x86_64.tar.gz
