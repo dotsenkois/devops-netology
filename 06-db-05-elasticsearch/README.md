@@ -87,8 +87,9 @@ green  open   test             nAZhlD1ETPO_0jGp4dm-ug   1   0          0        
 
 **Приведите в ответе** список файлов в директории со `snapshot`ами.
 
-[03.snapsohts.png](03.snapsohts.png)
-
+<p align="center">
+  <img src="./03.snapsohts.png">
+</p>
 
 Удалите индекс `test` и создайте индекс `test-2`. **Приведите в ответе** список индексов.
 ```
@@ -110,7 +111,6 @@ green  open   test-2           _y7X70EETwavZyU_d-Cwsw   1   0          0        
 
 **Приведите в ответе** запрос к API восстановления и итоговый список индексов.
 
-[03.restored.png](03.restored.png)
-
-Подсказки:
-- возможно вам понадобится доработать `elasticsearch.yml` в части директивы `path.repo` и перезапустить `elasticsearch`
+<p align="center">
+  <img src="./03.restored.png">
+</p>
