@@ -30,4 +30,5 @@ curl -X PUT "localhost:9200/ind-3?pretty" -H 'Content-Type: application/json' -d
 }'
 
 
+curl -X GET "localhost:9200/_cat/indices?v&pretty"
 curl -X GET "localhost:9200/_cluster/health?pretty"
