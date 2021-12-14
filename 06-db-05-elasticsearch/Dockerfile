@@ -29,9 +29,10 @@ echo "path.logs: /var/lib/elasticsearch/logs/" >> ${ES_HOME}/config/elasticsearc
 echo "path.repo: /var/lib/elasticsearch/snapsots/ " >> ${ES_HOME}/config/elasticsearch.yml;\
 echo "network.host: 0.0.0.0" >> ${ES_HOME}/config/elasticsearch.yml;\
 echo 'discovery.seed_hosts: ["127.0.0.1", "[::1]"]' >> ${ES_HOME}/config/elasticsearch.yml; \
-echo 'network.publish_host: localhost' >> elasticsearch.yml
-
+echo 'network.publish_host: localhost'  >> ${ES_HOME}/config/elasticsearch.yml; \
+echo 'cluster.initial_master_nodes: 127.0.0.1' >> ${ES_HOME}/config/elasticsearch.yml; 
 
 USER elasticsearch
 EXPOSE 9200:9200
+EXPOSE 9300:9300
 CMD [ "/elasticsearch-7.16.0/bin/elasticsearch" ]
