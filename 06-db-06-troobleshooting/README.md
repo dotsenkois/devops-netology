@@ -48,8 +48,14 @@ InterfaceError: (InterfaceError) 2013: Lost connection to MySQL server during qu
 ```
 
 Как вы думаете, почему это начало происходить и как локализовать проблему?
-
 Какие пути решения данной проблемы вы можете предложить?
+<br>
+В документации описаны 3 распространенные варианта проблемы:
+- Во время запроса - Увеличить значение пременной net_read_timeout >= 30 sec
+- Во время первоначального подключения - увеличив значение переменнйо connect_timeout >= 10 sec + мониторинг SHOW GLOBAL STATUS LIKE "Aborted_connects". 
+- Если проблема не подпадает под 2 вышестоящих пункта - следует проверить значения BLOB, они могут быть больше max_allowed_packet
+
+[ссылка на доку](https://dev.mysql.com/doc/refman/8.0/en/error-lost-connection.html)
 
 ## Задача 4
 
