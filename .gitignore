@@ -154,3 +154,7 @@
 06-db-05-elasticsearch/elasticsearch-7.16.0/*
 
 06-db-05-elasticsearch/elasticsearch-7.16.0-linux-x86_64.tar.gz
+07-terraform-02-syntax/terraform/yc
+07-terraform-02-syntax/terraform/aws/.*
+07-terraform-02-syntax/terraform/aws/terraform*
+07-terraform-02-syntax/terraform/aws/environment
