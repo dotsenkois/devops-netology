@@ -1,3 +1,4 @@
+```
 [dotsenkois@centos-neto aws]$ terraform plan
 
 Terraform used the selected providers to generate the following execution plan. Resource actions are indicated with the following symbols:
@@ -117,3 +118,4 @@ Changes to Outputs:
   + caller_user = "AIDATXUSMTRZO6DTSJOCI"
   + public_ip   = (known after apply)
   + subnet_id   = (known after apply)
+```
