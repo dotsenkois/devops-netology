@@ -29,11 +29,14 @@ dynamodb.
 В виде результата работы пришлите:
 * Вывод команды `terraform workspace list`.
 * Вывод команды `terraform plan` для воркспейса `prod`.  
+<p align="center">
+  <img src="./02.aws.png">
+</p>
+<p align="center">
+  <img src="./02.yc.png">
+</p>
 
----
-
-### Как cдавать задание
-
-Выполненное домашнее задание пришлите ссылкой на .md-файл в вашем репозитории.
-
----
+[***вывод консоли***](02.yc.output.md)<br>
+репозитории:
+- [aws](https://github.com/dotsenkois/terraform-aws)
+- [yc](https://github.com/dotsenkois/terraform-yc)
