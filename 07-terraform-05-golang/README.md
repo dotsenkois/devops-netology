@@ -48,23 +48,23 @@
     ```
 ## Ответ 3.2:
 
-    ```go
+```go
 
-    package main
+package main
 
-    import "fmt"
+import "fmt"
 
-    func main() {
-        x := []int{48, 96, 86, 68, 57, 82, 63, 70, 37, 34, 83, 27, 19, 97, 9, 17}
-        min := x[0]
-        for _, value := range x {
-            if value < min {
-                min = value
-            }
+func main() {
+    x := []int{48, 96, 86, 68, 57, 82, 63, 70, 37, 34, 83, 27, 19, 97, 9, 17}
+    min := x[0]
+    for _, value := range x {
+        if value < min {
+            min = value
         }
-        fmt.Printf("Наименьше число в массиве равно %v", min)
     }
-    ```
+    fmt.Printf("Наименьше число в массиве равно %v", min)
+}
+```
 3. Напишите программу, которая выводит числа от 1 до 100, которые делятся на 3. То есть `(3, 6, 9, …)`.
 
 ## Ответ 3.3:
