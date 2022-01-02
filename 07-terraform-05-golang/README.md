@@ -70,20 +70,20 @@
 ## Ответ 3.3:
 ```go
 
-package main
+    package main
 
-import "fmt"
+    import "fmt"
 
-func main() {
-	for i := 1; i < 100; i++ {
-		if i%3 == 0 {
-			fmt.Println(i)
-		}
-	}
-	for j := 3; j < 100; j = j + 3 {
-		fmt.Println(j)
-	}
-}
+    func main() {
+        for i := 1; i < 100; i++ {
+            if i%3 == 0 {
+                fmt.Println(i)
+            }
+        }
+        for j := 3; j < 100; j = j + 3 {
+            fmt.Println(j)
+        }
+    }
 
 ```
 
