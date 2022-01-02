@@ -22,22 +22,22 @@
 
 ## Ответ 3.1
     
-    ```go
+```go
 
-    package main
+package main
 
-    import "fmt"
+import "fmt"
 
-    func main() {
-        fmt.Print("Enter a distance in meters: ")
-        var input float64
-        fmt.Scanf("%f", &input)
+func main() {
+    fmt.Print("Enter a distance in meters: ")
+    var input float64
+    fmt.Scanf("%f", &input)
 
-        output := input * 0.3048
+    output := input * 0.3048
 
-        fmt.Printf("Distance in feet equal to %v feets", output)
-    }
-    ```
+    fmt.Printf("Distance in feet equal to %v feets", output)
+}
+```
 
  
 2. Напишите программу, которая найдет наименьший элемент в любом заданном списке, например:
@@ -62,7 +62,7 @@ func main() {
             min = value
         }
     }
-    fmt.Printf("Наименьше число в массиве равно %v", min)
+    fmt.Printf("Наименьшеe число в массиве равно %v", min)
 }
 ```
 3. Напишите программу, которая выводит числа от 1 до 100, которые делятся на 3. То есть `(3, 6, 9, …)`.
