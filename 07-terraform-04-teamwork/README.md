@@ -53,10 +53,6 @@
 
 https://registry.terraform.io/modules/terraform-aws-modules/ec2-instance/aws/latest
 
----
+## Ответ на задание 3
 
-### Как cдавать задание
-
-Выполненное домашнее задание пришлите ссылкой на .md-файл в вашем репозитории.
-
----
+[main.tf](https://github.com/dotsenkois/terraform-aws/blob/main/main.tf)
