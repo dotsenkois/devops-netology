@@ -22,22 +22,7 @@
 
 ## Ответ 3.1
     
-```go
-
-package main
-
-import "fmt"
-
-func main() {
-    fmt.Print("Enter a distance in meters: ")
-    var input float64
-    fmt.Scanf("%f", &input)
-
-    output := input * 0.3048
-
-    fmt.Printf("Distance in feet equal to %v feets", output)
-}
-```
+[3.1.go](./3.1.go)
 
  
 2. Напишите программу, которая найдет наименьший элемент в любом заданном списке, например:
@@ -48,47 +33,20 @@ func main() {
     ```
 ## Ответ 3.2:
 
-```go
+[3.2.go](./3.2.go)
 
-package main
-
-import "fmt"
-
-func main() {
-    x := []int{48, 96, 86, 68, 57, 82, 63, 70, 37, 34, 83, 27, 19, 97, 9, 17}
-    min := x[0]
-    for _, value := range x {
-        if value < min {
-            min = value
-        }
-    }
-    fmt.Printf("Наименьшеe число в массиве равно %v", min)
-}
-```
 3. Напишите программу, которая выводит числа от 1 до 100, которые делятся на 3. То есть `(3, 6, 9, …)`.
 
 ## Ответ 3.3:
-```go
 
-    package main
-
-    import "fmt"
-
-    func main() {
-        for i := 1; i < 100; i++ {
-            if i%3 == 0 {
-                fmt.Println(i)
-            }
-        }
-        for j := 3; j < 100; j = j + 3 {
-            fmt.Println(j)
-        }
-    }
-
-```
-
+[3.3.go](./3.3.go)
 
 ## Задача 4. Протестировать код (не обязательно).
 
 Создайте тесты для функций из предыдущего задания. 
 
+## Ответ 4.
+
+[3.1_test.go](./3.1_test.go)
+[3.2_test.go](./3.2_test.go)
+[3.3_test.go](./3.3_test.go)

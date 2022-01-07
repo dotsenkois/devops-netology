@@ -1,14 +1,23 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
-func main() {
-	for i := 1; i < 100; i++ {
-		if i%3 == 0 {
-			fmt.Println(i)
+func devidedByNumber(byNumber int) (array []int) {
+	for i := 1; i <= 100; i++ {
+		if i%byNumber == 0 {
+			array = append(array, i)
 		}
 	}
-	for j := 3; j < 100; j = j + 3 {
-		fmt.Println(j)
+	return array
+}
+
+func main() {
+	fmt.Print("введите целое число для проверки кратности: \n")
+	var input int
+	fmt.Scanf("%d", &input)
+	for _, v := range devidedByNumber(input) {
+		fmt.Println(v)
 	}
 }
