@@ -18,6 +18,12 @@
     * С каким другим параметром конфликтует `name`? Приложите строчку кода, в которой это указано.
     * Какая максимальная длина имени? 
     * Какому регулярному выражению должно подчиняться имя? 
+
+## Ответ на задание 1.
+-  [`resource`](https://github.com/hashicorp/terraform-provider-aws/blob/main/internal/provider/provider.go#L737)
+-  [`data_source`](https://github.com/hashicorp/terraform-provider-aws/blob/main/internal/provider/provider.go#L344)
+- []()
+
     
 ## Задача 2. (Не обязательно) 
 В рамках вебинара и презентации мы разобрали как создать свой собственный провайдер на примере кофемашины. 
