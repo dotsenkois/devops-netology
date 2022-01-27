@@ -4,8 +4,8 @@
 ## DevOps и системное администрирование
 ### Введение в DevOps
 - [01-intro-01](https://github.com/dotsenkois/devops-netology/blob/main/01-intro-01/README.md)
-- [02-git-01-vcs]()
-- [02-git-02-base]()
+- [02-git-01-vcs](https://github.com/dotsenkois/devops-netology/blob/main/02-git-01-vcs/README.md)
+- [02-git-02-base](https://github.com/dotsenkois/devops-netology/tree/main/02-git-02-base)
 - [02-git-03-branching]()
 - [02-git-04-tools]()
 
