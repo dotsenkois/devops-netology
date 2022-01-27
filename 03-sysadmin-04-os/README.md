@@ -78,52 +78,5 @@ root          12  0.0  0.3  11492  3488 pts/5    R+   11:03   0:00 ps au
 
 5. Найдите информацию о том, что такое `:(){ :|:& };:`. Запустите эту команду в своей виртуальной машине Vagrant с Ubuntu 20.04 (**это важно, поведение в других ОС не проверялось**). Некоторое время все будет "плохо", после чего (минуты) – ОС должна стабилизироваться. Вызов `dmesg` расскажет, какой механизм помог автоматической стабилизации. Как настроен этот механизм по-умолчанию, и как изменить число процессов, которое можно создать в сессии?
    
-## Ответ 
+## Ответ 7
 :(){ :|:& };: -Вызов функции с именем ':', аргументами (), телом { :|:& }, где происходит рекусривыный вызов функции дважды в конвейере. ';' - конец команды. ':' вызов функции еще раз При вызове этой функции проиходит зацикливание с выводом  *-bash: fork: retry: Resource temporarily unavailable*
-
-6. [Установка и запуск node_exporter. Вывод метрик.](1.md) <br>[node_exporter.servise](node_exporter.servise.md) 
-
-7. cpu	Exposes CPU statistics<br>
-cpufreq	Exposes CPU frequency statistics<br>
-diskstats	Exposes disk I/O statistics.<br>
-loadavg	Exposes load average.<br>
-netstat	Exposes network statistics from /proc/net/netstat. This is the same information as netstat -s.<br>
-meminfo	Exposes memory statistics.<br>
-
-3. [Сриншот](https://disk.yandex.ru/i/-oeJmyyhxJB6AA)
-4. Вывод dmesg:
-```
-vagrant@vagrant:~$ dmesg | grep Hyper
-[    0.000000] Hypervisor detected: KVM
-```
-5. sysctl fs.nr_open - ограничение одноврменно открытых файлов.sysctl fs.nr_open
-*fs.nr_open = 1048576*Данное оганичение является жестким (аппаратным?) - hardlimitulimit -aH |grep files
-*open files                      (-n) 1048576*Его не позволяет достичь мягкое ограничение (программное?) - softlimitulimit -aS |grep files
-*open files                      (-n) 1024*
-6. Запуск и проверка процесса в отдлельном неймспейсе:
-```
-tty1:root@vagrant:/home/vagrant# unshare -f --pid --mount-proc sleep 1h
-tty2:root@vagrant:/home/vagrant# ps aux |grep sleep
-root        2221  0.0  0.0   8076   528 ?        S    10:46   0:00 /bin sleep 1h
-root        2250  0.0  0.0   8076   520 ?        S    10:47   0:00 /bin sleep 1h
-root        2388  0.0  0.0   8076   596 ?        S    10:52   0:00 /bin sleep 1h
-root        2513  0.0  0.0   8080   592 pts/3    T    11:00   0:00 unshare -f --pid --mount-proc sleep 1h
-root        2514  0.0  0.0   8076   596 pts/3    S    11:00   0:00 slee  1h
-root        2520  0.0  0.0   8080   592 pts/3    S+   11:01   0:00 unshare -f --pid --mount-proc sleep 1h
-root        2521  0.0  0.0   8076   580 pts/3    S+   11:01   0:00 slee  1h
-root        2591  0.0  0.0   8900   736 pts/5    S+   11:03   0:00 grep --color=auto sleep
-root@vagrant:/home/vagrant# nsenter --target 2521 --pid --mount
-root@vagrant:/# ps aux
-USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
-root           1  0.0  0.0   8076   580 pts/3    S+   11:01   0:00 sleep
-root           2  0.2  0.4   9836  4292 pts/5    S    11:03   0:00 -bash
-root          12  0.0  0.3  11492  3488 pts/5    R+   11:03   0:00 ps au
-```
-7. :(){ :|:& };: -Вызов функции с именем ':', аргументами (), телом { :|:& }, где происходит рекусривыный вызов функции дважды в конвейере. ';' - конец команды. ':' вызов функции еще раз При вызове этой функции проиходит зацикливание с выводом  *-bash: fork: retry: Resource temporarily unavailable*<br>
-вывод dmesg:
-```
-vagrant@vagrant:~$ dmesg| grep cgroup
-[    0.308355] *** VALIDATE cgroup1 ***
-[    0.308357] *** VALIDATE cgroup2 ***
-[ 2653.742622] cgroup: fork rejected by pids controller in /user.slice/user-1000.slice/session-1.scope
-```
