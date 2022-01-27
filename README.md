@@ -12,7 +12,7 @@
 ### Основы системного администрирования
 - [03-sysadmin-01-terminal](https://github.com/dotsenkois/devops-netology/tree/main/03-sysadmin-01-terminal)
 - [03-sysadmin-02-terminal](https://github.com/dotsenkois/devops-netology/blob/main/03-sysadmin-02-terminal/README.md)
-- [03-sysadmin-03-os]()
+- [03-sysadmin-03-os](https://github.com/dotsenkois/devops-netology/blob/main/03-sysadmin-03-os/README.md)
 - [03-sysadmin-04-os]()
 - [03-sysadmin-05-fs]()
 - [03-sysadmin-06-net]()
