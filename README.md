@@ -16,9 +16,9 @@
 - [03-sysadmin-04-os](https://github.com/dotsenkois/devops-netology/blob/main/03-sysadmin-04-os/README.md)
 - [03-sysadmin-05-fs](https://github.com/dotsenkois/devops-netology/blob/main/03-sysadmin-05-fs/README.md)
 - [03-sysadmin-06-net](https://github.com/dotsenkois/devops-netology/blob/main/03-sysadmin-06-net/README.md)
-- [03-sysadmin-07-net](https://github.com/dotsenkois/devops-netology/blob/main/03-sysadmin-07-net/README.md))
-- [03-sysadmin-08-net](https://github.com/dotsenkois/devops-netology/blob/main/03-sysadmin-08-net/README.md))
-- [03-sysadmin-09-security](https://github.com/dotsenkois/devops-netology/blob/main/03-sysadmin-09-security/README.md))
+- [03-sysadmin-07-net](https://github.com/dotsenkois/devops-netology/blob/main/03-sysadmin-07-net/README.md)
+- [03-sysadmin-08-net](https://github.com/dotsenkois/devops-netology/blob/main/03-sysadmin-08-net/README.md)
+- [03-sysadmin-09-security](https://github.com/dotsenkois/devops-netology/blob/main/03-sysadmin-09-security/README.md)
 
 ### Скриптовые языки и языки разметки: Python, Bash, YAML, JSON
 - [04-script-01-bash](https://github.com/dotsenkois/devops-netology/blob/main/04-script-01-bash/README.md)
