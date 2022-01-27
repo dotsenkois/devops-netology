@@ -1,3 +1,5 @@
+.DS_Store
+.idea/
 .idea
 .git
 /04-script-01-bash/1.sh
