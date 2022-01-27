@@ -14,7 +14,7 @@
 - [03-sysadmin-02-terminal](https://github.com/dotsenkois/devops-netology/blob/main/03-sysadmin-02-terminal/README.md)
 - [03-sysadmin-03-os](https://github.com/dotsenkois/devops-netology/blob/main/03-sysadmin-03-os/README.md)
 - [03-sysadmin-04-os](https://github.com/dotsenkois/devops-netology/blob/main/03-sysadmin-04-os/README.md)
-- [03-sysadmin-05-fs]()
+- [03-sysadmin-05-fs](https://github.com/dotsenkois/devops-netology/blob/main/03-sysadmin-05-fs/README.md)
 - [03-sysadmin-06-net]()
 - [03-sysadmin-07-net]()
 - [03-sysadmin-08-net]()
