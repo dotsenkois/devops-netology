@@ -10,7 +10,7 @@
 - [02-git-04-tools](https://github.com/dotsenkois/devops-netology/blob/main/02-git-04-tools/README.md)
 
 ### Основы системного администрирования
-- [03-sysadmin-01-terminal]()
+- [03-sysadmin-01-terminal](https://github.com/dotsenkois/devops-netology/tree/main/03-sysadmin-01-terminal)
 - [03-sysadmin-02-terminal]()
 - [03-sysadmin-03-os]()
 - [03-sysadmin-04-os]()
