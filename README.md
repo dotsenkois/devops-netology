@@ -50,7 +50,8 @@
 - [07-terraform-05-golang](https://github.com/dotsenkois/devops-netology/blob/main/07-terraform-05-golang/README.md)
 - [07-terraform-06-providers](https://github.com/dotsenkois/devops-netology/blob/main/07-terraform-06-providers/README.md)
 
-## CI, мониторинг и управление конфигурациями.(3 февраля — 20 апреля)
+## CI, мониторинг и управление конфигурациями.
 ### Система управления конфигурациями
+- [08-ansible-01-base](https://github.com/dotsenkois/devops-netology/blob/main/08-ansible-01-base/README.md)
 ### Непрерывная разработка и интеграция
 ### Мониторинг и логи
