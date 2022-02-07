@@ -49,6 +49,13 @@ ok: [centos7] => {
 }
 ```
 7. При помощи `ansible-vault` зашифруйте факты в `group_vars/deb` и `group_vars/el` с паролем `netology`.
+```
+dotsenkois@netology-ubuntu:~/repository/devops-netology-ansible/08-ansible-01-base/playbook$ ansible-vault encrypt group_vars/deb/examp.yml --vault-pass-file credentials 
+Encryption successful
+dotsenkois@netology-ubuntu:~/repository/devops-netology-ansible/08-ansible-01-base/playbook$ ansible-vault encrypt group_vars/el/examp.yml --vault-pass-file credentials 
+Encryption successful
+```
+
 8. Запустите playbook на окружении `prod.yml`. При запуске `ansible` должен запросить у вас пароль. Убедитесь в работоспособности.
 ```
 dotsenkois@netology-ubuntu:~/repository/devops-netology-ansible/08-ansible-01-base/playbook$ ansible-playbook -i inventory/prod.yml  site.yml  --vault-pass-file credentials
@@ -125,6 +132,8 @@ ubuntu                     : ok=3    changed=0    unreachable=0    failed=0    s
 ```
 
 12. Заполните `README.md` ответами на вопросы. Сделайте `git push` в ветку `master`. В ответе отправьте ссылку на ваш открытый репозиторий с изменённым `playbook` и заполненным `README.md`.
+[`README.md](../playbook/README.md)
+
 
 ## Необязательная часть
 
