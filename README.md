@@ -53,7 +53,7 @@
 ## CI, мониторинг и управление конфигурациями.
 ### Система управления конфигурациями
 - [08-ansible-01-base](https://github.com/dotsenkois/devops-netology/blob/main/08-ansible-01-base/README.md)
-- [08-ansible-02-playbook](https://github.com/dotsenkois/devops-netology/blob/main/08-ansible-01-base/README.md)
-- 
+- [08-ansible-02-playbook](https://github.com/dotsenkois/devops-netology/blob/main/08-ansible-02-playbook/README.md)
+- [08-ansible-03-yandex$](https://github.com/dotsenkois/devops-netology/blob/main/08-ansible-03-yandex/README.md)
 ### Непрерывная разработка и интеграция
 ### Мониторинг и логи
