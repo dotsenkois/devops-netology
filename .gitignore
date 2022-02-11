@@ -160,4 +160,7 @@
 07-terraform-02-syntax/terraform/aws/.*
 07-terraform-02-syntax/terraform/aws/terraform*
 07-terraform-02-syntax/terraform/aws/environment
-08-ansible-02-playbook/terraform/*
+08-ansible-02-playbook/terraform/.terraform/*
+08-ansible-02-playbook/terraform/terraform*
+08-ansible-02-playbook/terraform/.terraform*
+08-ansible-02-playbook/terraform/cloud_config.yaml
