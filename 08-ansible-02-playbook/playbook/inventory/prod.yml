@@ -1,0 +1,13 @@
+---
+elasticsearch:
+  hosts:
+    elasticsearch:
+      ansible_host: 51.250.36.150
+      ansible_connection: ssh
+      ansible_user: dotsenkois
+kibana:
+  hosts:
+    kibana:
+      ansible_host: 51.250.33.77
+      ansible_connection: ssh
+      ansible_user: dotsenkois
