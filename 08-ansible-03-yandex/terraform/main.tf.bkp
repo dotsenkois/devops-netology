@@ -1,0 +1,168 @@
+
+provider "yandex" {
+  zone = "ru-central1-c"
+  #Ключи сохранены в переменых среды:
+  #YC_TOKEN, YC_CLOUD_ID, YC_FOLDER_ID
+}
+
+# locals {
+#   web_instance_type_map = {
+#     stage = "standard-v1"
+#     prod  = "standard-v1"
+#   }
+#   web_instance_count_map = {
+#     stage = 1
+#     prod  = 2
+#   }
+#   web_instance_name_map = {
+#     stage = "ELK"
+#     prod  = "ELK"
+#   }
+#   instances = {
+#     "standard-v1" = "fd89c9t0duap8opetfb9"
+#     "standard-v2" = "fd89c9t0duap8opetfb9"
+#   }
+#   instance_ip_addresses = {
+
+    
+#   }
+
+# }
+
+resource "yandex_compute_instance" "es-node01" {
+  name        = "es-node01"
+  platform_id = "standard-v1"
+  zone        = "ru-central1-c"
+
+  resources {
+    core_fraction = 20
+    cores  = 2
+    memory = 2
+  }
+
+  boot_disk {
+    initialize_params {
+      image_id = "fd89c9t0duap8opetfb9"
+    }
+  }
+
+  network_interface {
+    subnet_id = "${yandex_vpc_subnet.subnet-1.id}"
+    ip_address = "10.130.0.10"
+     nat       = "true"
+  }
+
+  metadata = {
+    user-data = file("${path.module}/cloud_config.yaml")
+  }
+
+  scheduling_policy {
+    preemptible = true
+  }
+}
+
+resource "yandex_compute_instance" "kib-node01" {
+  name        = "kib-node01"
+  platform_id = "standard-v1"
+  zone        = "ru-central1-c"
+
+  resources {
+    core_fraction = 20
+    cores  = 2
+    memory = 2
+  }
+
+  boot_disk {
+    initialize_params {
+      image_id = "fd89c9t0duap8opetfb9"
+    }
+  }
+
+  network_interface {
+    subnet_id = "${yandex_vpc_subnet.subnet-1.id}"
+    ip_address = "10.130.0.11"
+     nat       = "true"
+  }
+
+  metadata = {
+    user-data = file("${path.module}/cloud_config.yaml")
+  }
+
+  scheduling_policy {
+    preemptible = true
+  }
+}
+
+resource "yandex_compute_instance" "app-node01" {
+  name        = "app-node01"
+  platform_id = "standard-v1"
+  zone        = "ru-central1-c"
+
+  resources {
+    core_fraction = 20
+    cores  = 2
+    memory = 2
+  }
+
+  boot_disk {
+    initialize_params {
+      image_id = "fd89c9t0duap8opetfb9"
+    }
+  }
+
+  network_interface {
+    subnet_id = "${yandex_vpc_subnet.subnet-1.id}"
+    ip_address = "10.130.0.20"
+     nat       = "true"
+  }
+
+  metadata = {
+    user-data = file("${path.module}/cloud_config.yaml")
+  }
+
+  scheduling_policy {
+    preemptible = true
+  }
+}
+resource "yandex_compute_instance" "app-node02" {
+  name        = "app-node02"
+  platform_id = "standard-v1"
+  zone        = "ru-central1-c"
+
+  resources {
+    core_fraction = 20
+    cores  = 2
+    memory = 2
+  }
+
+  boot_disk {
+    initialize_params {
+      image_id = "fd89c9t0duap8opetfb9"
+    }
+  }
+
+  network_interface {
+    subnet_id = "${yandex_vpc_subnet.subnet-1.id}"
+    ip_address = "10.130.0.21"
+    nat       = "true"
+  }
+
+  metadata = {
+    user-data = file("${path.module}/cloud_config.yaml")
+  }
+
+  scheduling_policy {
+    preemptible = true
+  }
+}
+
+resource "yandex_vpc_network" "network-1" {
+  name = "network1"
+}
+
+resource "yandex_vpc_subnet" "subnet-1" {
+  name       = "subnet1"
+  zone       = "ru-central1-c"
+  network_id = "${yandex_vpc_network.network-1.id}"
+  v4_cidr_blocks = ["10.130.0.0/24"]
+}

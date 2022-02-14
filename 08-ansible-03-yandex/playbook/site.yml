@@ -14,6 +14,11 @@
         dest: "/tmp/elasticsearch-{{ elasticsearch_version }}-x86_64.rpm"
       register: download_elastic
       until: download_elastic is succeeded
+    - name: "Install elasticsearch rpm key"
+      become: true
+      rpm_key: 
+        state: present
+        key: https://artifacts.elastic.co/GPG-KEY-elasticsearch
     - name: Install Elasticsearch
       become: true
       yum:
@@ -41,6 +46,12 @@
         dest: "/tmp/kibana-{{kibana_version}}-x86_64.rpm"
       register: download_kibana
       until: download_kibana is succeeded
+    - name: "Install kibana rpm key"
+      become: true
+      rpm_key: 
+        state: present
+        key: https://artifacts.elastic.co/GPG-KEY-elasticsearch
+
     - name: Install kibana
       become: true
       yum:

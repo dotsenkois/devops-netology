@@ -1,0 +1,8 @@
+#cloud-config
+ssh_pwauth: no
+users:
+  - name: dotsenkois
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    shell: /bin/bash
+    ssh_authorized_keys:
+      - "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQD5N9n/zv0ykYiCrmcuWVYiH6vhMJjij6bFmwzlGWnAZJtvPrAuozAyTOgKcF/Twj0JJ8DNt24sR7TZxNFoy21ugYfXfju7JzGOV7ubnQlwN92Wu+NZq8f9jhCSeNvAw6GxVvUhOWRlW11NrLbYa8McdeXaRWM8D1CIj4JcZc1i5m8SzSrGGGQg8VIUd6dAhA9UmAOemDDe87cokthTynhUTZ9+SQ41zaAWe0wsBkCbIrZVc/k9+hlaubN/u+BsmLBvoNURn+yYpdkcc4eUI+RVAsJT4R1LcK+QuyvcEYHnarou1l9EL7aeZaaYMKPwljCxL6/81B2d7Tz/ETjJdiViolzWA1y0kKIvfpqmiJRAhNvda50vd+jYdSkDPB4w3duHyiz1WTfkrgeI6F7KtCkjDFog1h/5GjXzCYLH0q0D06HbnzmgQzNGV6SaLw+5v9SeXX/Z3iybLOrTaZPeLj18dToWGFzenpC5ij7OWQe4zyPiN2V/Hv+l1vWKhCdbXnU= dotsenkois@dotsenkois-Aspire-SW5-171"
