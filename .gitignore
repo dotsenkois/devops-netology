@@ -164,3 +164,8 @@
 08-ansible-02-playbook/terraform/terraform*
 08-ansible-02-playbook/terraform/.terraform*
 08-ansible-02-playbook/terraform/cloud_config.yaml
+08-ansible-03-yandex/terraform/.terraform/providers/registry.terraform.io/yandex-cloud/yandex/0.71.0/linux_amd64/LICENSE
+.gitignore
+08-ansible-03-yandex/terraform/.terraform/providers/registry.terraform.io/yandex-cloud/yandex/0.61.0/linux_amd64/README.md
+08-ansible-03-yandex/terraform/.terraform/providers/registry.terraform.io/yandex-cloud/yandex/0.71.0/linux_amd64/CHANGELOG.md
+08-ansible-03-yandex/terraform/.terraform/providers/registry.terraform.io/yandex-cloud/yandex/0.71.0/linux_amd64/README.md
