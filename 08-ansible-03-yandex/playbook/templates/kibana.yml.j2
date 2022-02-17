@@ -1,0 +1,15 @@
+# Адрес и порт
+server.host: 127.0.0.1
+server.port: 5601
+
+# Узлы кластера Elasticsearch
+elasticsearch.hosts:
+  - http://10.130.0.10:9200
+
+# Частота запросов обновления узлов кластера
+# Запрос обновлений в случае сбоя подключения
+elasticsearch.sniffInterval: 60000
+elasticsearch.sniffOnConnectionFault: true
+
+# Логи Kibana
+logging.dest: /var/log/kibana/kibana.log

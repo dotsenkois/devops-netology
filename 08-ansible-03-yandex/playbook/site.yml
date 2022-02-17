@@ -1,0 +1,121 @@
+---
+# - name: Install GPG key
+#   hosts: all
+#   tasks:
+#     - name: "Install elasticsearch rpm key"
+#       become: true
+#       rpm_key: 
+#       state: present
+#       key: https://artifacts.elastic.co/GPG-KEY-elasticsearch
+
+
+
+- name: Install Elasticsearch
+  hosts: elasticsearch
+  handlers:
+    - name: restart Elasticsearch
+      become: true
+      service:
+        name: elasticsearch
+        state: restarted
+  tasks:
+    - name: "Install elasticsearch rpm key"
+      become: true
+      rpm_key: 
+          state: present
+          key: https://artifacts.elastic.co/GPG-KEY-elasticsearch
+
+    - name: "Download Elasticsearch's rpm"
+      get_url:
+        url: "https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-{{ elasticsearch_version }}-x86_64.rpm"
+        dest: "/tmp/elasticsearch-{{ elasticsearch_version }}-x86_64.rpm"
+      register: download_elastic
+      until: download_elastic is succeeded
+    - name: Install Elasticsearch
+      become: true
+      yum:
+        name: "/tmp/elasticsearch-{{ elasticsearch_version }}-x86_64.rpm"
+        state: present
+    - name: Configure Elasticsearch
+      become: true
+      template:
+        src: elasticsearch.yml.j2
+        dest: /etc/elasticsearch/elasticsearch.yml
+      notify: restart Elasticsearch
+
+- name: Install kibana
+  hosts: kibana
+  handlers:
+    - name: restart kibana
+      become: true
+      service:
+        name: kibana
+        state: restarted
+  tasks:
+    - name: "Install elasticsearch rpm key"
+      become: true
+      rpm_key: 
+          state: present
+          key: https://artifacts.elastic.co/GPG-KEY-elasticsearch
+    - name: "Download kibana's rpm"
+      get_url:
+        url: "https://artifacts.elastic.co/downloads/kibana/kibana-{{kibana_version}}-x86_64.rpm" 
+        dest: "/tmp/kibana-{{kibana_version}}-x86_64.rpm"
+      register: download_kibana
+      until: download_kibana is succeeded
+    # - name: "Install kibana rpm key"
+    #   become: true
+    #   rpm_key: 
+    #     state: present
+    #     key: https://artifacts.elastic.co/GPG-KEY-elasticsearch
+
+    - name: Install kibana
+      become: true
+      yum:
+        name: "/tmp/kibana-{{kibana_version}}-x86_64.rpm"
+        state: present
+    - name: Configure kibana
+      become: true
+      template:
+        src: kibana.yml.j2
+        dest: /etc/kibana/kibana.yml
+      notify: restart kibana
+
+- name: Install filebeat
+  hosts: app
+  handlers:
+    - name: restart filebeat
+      become: true
+      service:
+        name: filebeat
+        state: restarted
+  tasks:
+    - name: "Install elasticsearch rpm key"
+      become: true
+      rpm_key: 
+          state: present
+          key: https://artifacts.elastic.co/GPG-KEY-elasticsearch
+    - name: "Download filebeat's rpm"
+      get_url:
+        url: "https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-{{ filebeat_version }}-x86_64.rpm" #"https://artifacts.elastic.co/downloads/kibana/kibana-{{kibana_version}}-x86_64.rpm" 
+        dest: "/tmp/filebeat-{{ filebeat_version }}-x86_64.rpm"
+      register: download_filebeat
+      until: download_filebeat is succeeded
+    # - name: "Install filebeat rpm key"
+    #   become: true
+    #   rpm_key: 
+    #     state: present
+    #     key: https://artifacts.elastic.co/GPG-KEY-elasticsearch
+
+    - name: Install filebeat
+      become: true
+      yum:
+        name: "/tmp/filebeat-{{ filebeat_version }}-x86_64.rpm"
+        state: present
+    - name: Configure filebeat
+      become: true
+      template:
+        src: filebeat.yml.j2
+        dest: /etc/filebeat/filebeat.yml
+      notify: restart filebeat
+

@@ -1,0 +1,8 @@
+path.data: /var/lib/elasticsearch
+path.logs: /var/log/elasticsearch
+network.host: 0.0.0.0
+discovery.seed_hosts: ["{{ ansible_facts['default_ipv4']['address'] }}"]
+node.name: es-node01
+node.roles: [ master, data ] 
+cluster.initial_master_nodes: 
+   - es-node01
