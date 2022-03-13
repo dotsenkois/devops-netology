@@ -37,10 +37,9 @@
 3. Убедитесь в работоспособности своего стека: установите logstash на свой хост с elasticsearch, настройте конфиги logstash и filebeat так, чтобы они взаимодействовали друг с другом и elasticsearch корректно.
 4. Выложите logstash-role в репозиторий. В ответ приведите ссылку.
 
----
-
-### Как оформить ДЗ?
-
-Выполненное домашнее задание пришлите ссылкой на .md-файл в вашем репозитории.
-
----
+### Репозитории
+- (terraform)[https://github.com/dotsenkois/ansible-secret]
+- (playbook)[https://github.com/dotsenkois/as]
+- (filebeat-role)[https://github.com/dotsenkois/filebeat-role]
+- (kibana-role)[https://github.com/dotsenkois/kibana-role]
+- (logstash-role)[https://github.com/dotsenkois/logstash-role]
