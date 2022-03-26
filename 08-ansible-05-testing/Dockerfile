@@ -1,4 +1,4 @@
-FROM docker.io/centos:7
+FROM registry.redhat.io/rhel8/podman:latest
 ENV MOLECULE_NO_LOG false
 
 RUN yum reinstall glibc-common -y

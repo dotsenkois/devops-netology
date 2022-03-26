@@ -19,7 +19,7 @@
 
 ### Tox
 
-1. Запустите `docker run --privileged=True -v /home/dotsenkois/repo/ansible-roles/elastic_role:/opt/elasticsearch-role -w /opt/elasticsearch-role -it pycontribs/centos:7 /bin/bash`, где path_to_repo - путь до корня репозитория с elasticsearch-role на вашей файловой системе.
+1. Запустите ` docker run --privileged=True -v /home/dotsenkois/repo/ansible-roles:/opt/roles -w /opt/reoles -it tox:1 /bin/bash`, где path_to_repo - путь до корня репозитория с elasticsearch-role на вашей файловой системе.
 2. Внутри контейнера выполните команду `tox`, посмотрите на вывод.
 3. Добавьте файл `tox.ini` в корень репозитория каждой своей роли.
 4. Создайте облегчённый сценарий для `molecule`. Проверьте его на исполнимость.
