@@ -40,9 +40,12 @@
 6. Выложите свои roles в репозитории. В ответ приведите ссылки.
 
 ---
+# Ответ для домашнего задания к занятию "08.05 Тестирование Roles"
 
-### Как оформить ДЗ?
+[elastic_role](htps://github.com/dotsenkois/elastic_role)
 
-Выполненное домашнее задание пришлите ссылкой на .md-файл в вашем репозитории.
+[logstash_role](https://github.com/dotsenkois/logstash_role)
 
----
+[kibana_role](https://github.com/dotsenkois/kibana_role)
+
+[filebeat_role](https://github.com/dotsenkois/filebeat_role)
