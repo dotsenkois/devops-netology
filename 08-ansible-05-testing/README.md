@@ -42,7 +42,7 @@
 ---
 # Ответ для домашнего задания к занятию "08.05 Тестирование Roles"
 
-[elastic_role](htps://github.com/dotsenkois/elastic_role)
+[elastic_role](https://github.com/dotsenkois/elastic_role)
 
 [logstash_role](https://github.com/dotsenkois/logstash_role)
 
