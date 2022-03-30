@@ -1,0 +1,11 @@
++----------------------+----------------+---------------+---------+---------------+--------------+
+|          ID          |      NAME      |    ZONE ID    | STATUS  |  EXTERNAL IP  | INTERNAL IP  |
++----------------------+----------------+---------------+---------+---------------+--------------+
+| ef3j0ag4diku5ub9j4sb | app-node02     | ru-central1-c | RUNNING |               | 10.130.0.21  |
+| ef3ojv4hmn45ck7bj8jb | nginx-node01   | ru-central1-c | RUNNING | 51.250.35.225 | 10.130.0.50  |
+| ef3r1295cer0r28rgkrc | ansible-node01 | ru-central1-c | RUNNING | 51.250.41.14  | 10.130.0.100 |
+| ef3thr3rfsb19aovrud2 | kib-node01     | ru-central1-c | RUNNING |               | 10.130.0.11  |
+| ef3tm36kih5adpg4e9ns | es-node01      | ru-central1-c | RUNNING |               | 10.130.0.10  |
+| ef3u9r87u7a3c6l061ea | app-node01     | ru-central1-c | RUNNING |               | 10.130.0.20  |
++----------------------+----------------+---------------+---------+---------------+--------------+
+
