@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  <img width="1200" height=600" src="./SonarQube_CLI_1.png1">
+  <img width="1200" height=600" src="./SonarQube_CLI_1.png">
 </p>
 
 ## Знакомство с Nexus
