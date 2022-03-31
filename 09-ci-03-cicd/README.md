@@ -5,11 +5,11 @@
 ## Знакомоство с SonarQube
 
 <p align="center">
-  <img width="1200" height=600" src="./SonarQube_web.png1">
+  <img width="1200" height=600" src="./SonarQube_web_1.png">
 </p>
 
 <p align="center">
-  <img width="1200" height=600" src="./SonarQube_CLI.png1">
+  <img width="1200" height=600" src="./SonarQube_CLI_1.png1">
 </p>
 
 ## Знакомство с Nexus
