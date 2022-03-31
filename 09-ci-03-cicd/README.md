@@ -26,6 +26,12 @@
 
 ## Знакомство с Maven
 
+[pom.xml](pom.xml)
+
+<p align="center">
+  <img width="1200" height=600" src="./mavin.png">
+</p>
+
 
 ## Подготовка к выполнению
 
