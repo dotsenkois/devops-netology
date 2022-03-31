@@ -18,6 +18,12 @@
 
 ## Знакомство с Nexus
 
+[maven-metadata.xml](./maven-metadata.xml)
+
+<p align="center">
+  <img width="1200" height=600" src="./nexus.png">
+</p>
+
 ## Знакомство с Maven
 
 
@@ -47,6 +53,7 @@
 9. Делаем скриншот успешного прохождения анализа, прикладываем к решению ДЗ
 
 ## Знакомство с Nexus
+
 
 ### Основная часть
 
