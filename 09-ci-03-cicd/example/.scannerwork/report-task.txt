@@ -2,5 +2,5 @@ projectKey=netology
 serverUrl=http://51.250.38.76:9000
 serverVersion=9.1.0.47736
 dashboardUrl=http://51.250.38.76:9000/dashboard?id=netology
-ceTaskId=AX_baynsrEKvkqxj5YHy
-ceTaskUrl=http://51.250.38.76:9000/api/ce/task?id=AX_baynsrEKvkqxj5YHy
+ceTaskId=AX_dxEgbrEKvkqxj5YH3
+ceTaskUrl=http://51.250.38.76:9000/api/ce/task?id=AX_dxEgbrEKvkqxj5YH3

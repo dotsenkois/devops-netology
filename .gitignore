@@ -173,3 +173,4 @@
 09-ci-03-cicd/terraform/terraform.tfstate
 09-ci-03-cicd/terraform/terraform.tfstate.backup
 09-ci-03-cicd/terraform/main.tf.bkp
+09-ci-03-cicd/example/.scannerwork/report-task.txt
