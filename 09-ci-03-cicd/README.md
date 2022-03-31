@@ -5,7 +5,11 @@
 ## Знакомоство с SonarQube
 
 <p align="center">
-  <img width="1200" height=600" src="./SonarQube_web_1.png">
+  <img width="1200" height=600" src="./SonarQube_web_overal.png">
+</p>
+
+<p align="center">
+  <img width="1200" height=600" src="./SonarQube_web_new.png">
 </p>
 
 <p align="center">
