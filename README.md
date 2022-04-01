@@ -5,12 +5,12 @@
 ### Введение в DevOps
 - [01-intro-01](./01-intro-01/README.md)
 - [02-git-01-vcs](./02-git-01-vcs/README.md)
-- [02-git-02-base](https://github.com/dotsenkois/devops-netology/tree/main/02-git-02-base)
+- [02-git-02-base](./02-git-02-base/README.md)
 - [02-git-03-branching](./02-git-03-branching/README.md)
 - [02-git-04-tools](./02-git-04-tools/README.md)
 
 ### Основы системного администрирования
-- [03-sysadmin-01-terminal](https://github.com/dotsenkois/devops-netology/tree/main/03-sysadmin-01-terminal)
+- [03-sysadmin-01-terminal](./03-sysadmin-01-terminal/README.md)
 - [03-sysadmin-02-terminal](./03-sysadmin-02-terminal/README.md)
 - [03-sysadmin-03-os](./03-sysadmin-03-os/README.md)
 - [03-sysadmin-04-os](./03-sysadmin-04-os/README.md)
