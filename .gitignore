@@ -174,3 +174,6 @@
 09-ci-03-cicd/terraform/terraform.tfstate.backup
 09-ci-03-cicd/terraform/main.tf.bkp
 09-ci-03-cicd/example/.scannerwork/report-task.txt
+09-ci-04-jenkins/terraform/.terraform.tfstate.lock.info
+09-ci-04-jenkins/terraform/terraform.tfstate.backup
+09-ci-04-jenkins/terraform/terraform.tfstate

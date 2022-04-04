@@ -1,0 +1,8 @@
+#cloud-config
+ssh_pwauth: no
+users:
+  - name: dotsenkois
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    #shell: /bin/bash
+    ssh_authorized_keys:
+      - ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC+4acFY10a1wY0gzYa311kVSmt5Zo+G2PaPysGgkoq1S/9NRo5SH3extn2pulGL0cjyQJrCBgpmkvTJV2eMR2JcD/b1YibODkH5rubFXUZQK1/tI7W1TIOmTT+99LU+waaYHWbcttJGET5TorQqKobavWh/oSNEGhzU0lH2OE9ILeYgYQkYlYl0vwtevgwJN/NPoio7sZE2aYNdL+d7UVV11gQNRppJLc+anAKw8ZlosPZhwsr2VljmWZahTh8KwJsa+oR5vfn4qMeLRE33Ca4s8ZGmAEnukaPOz77AIzbVqfzdMbkH4uONFXkr4Mq3P8cKa28HOUp4uhEhgWk3bl3NopHI9/V5apl39p95xBVnlbc+7rpWrW6aNTFtNIOgnAS0U52up5oz3daTb844pegdg8hWwUm2wxXQL3z1xzfy76RVrlGfCi5AYZq6lYl8cGHNb8D3hRGEF4RgApaGaUPnzaATPDt0GhMGkIPrt1S5MCW6bS3yFqA9rHT+4TgTw0= dotsenkois@localhost

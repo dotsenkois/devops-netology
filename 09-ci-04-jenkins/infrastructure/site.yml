@@ -63,6 +63,7 @@
         state: restarted
         enabled: true
       when: jenkins_installed is changed
+      
 - name: Prepare jenkins agent
   hosts: jenkins_agents
   become: true
@@ -108,7 +109,9 @@
         executable: pip3
         name:
           - selinux
-          - ansible<3.0
+          - ansible
+          - molecule
+          - molecule_docker
         state: present
     - name: Reinstall Selinux
       become_user: root
