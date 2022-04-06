@@ -9,6 +9,7 @@ variable "yc_instances_sn" {
   default = {
     "jenkins-master"  = "10.130.0.10"
     "jenkins-agent" = "10.130.0.11"
+    "nexus" = "10.130.0.12"
   }
 }
 

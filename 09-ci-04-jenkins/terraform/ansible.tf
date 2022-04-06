@@ -1,6 +1,6 @@
 resource "null_resource" "wait" {
   provisioner "local-exec" {
-    command = "sleep 100"
+    command = "sleep 30"
   }
 
   depends_on = [
@@ -10,7 +10,7 @@ resource "null_resource" "wait" {
 
 resource "null_resource" "jenkins" {
   provisioner "local-exec" {
-    command = "ANSIBLE_FORCE_COLOR=1 ansible-playbook -i ../infrastructure/inventory/cicd/inventory ../infrastructure/site.yml"
+    command = "ANSIBLE_FORCE_COLOR=1 ansible-playbook -i infrastructure/inventory/cicd/hosts.yml infrastructure/site.yml"
   }
 
   depends_on = [

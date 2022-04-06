@@ -1,5 +1,8 @@
 #!/bin/bash
-
-cd ./terraform
-terraform init
-terraform apply --auto-approve
+if test -e ./terraform/.terraform; then
+    cd ./terraform
+    terraform apply --auto-approve
+else
+  mkdir terraform && cd terraform
+  terraform init
+fi
