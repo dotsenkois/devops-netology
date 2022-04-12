@@ -177,3 +177,12 @@
 09-ci-04-jenkins/terraform/.terraform.tfstate.lock.info
 09-ci-04-jenkins/terraform/terraform.tfstate.backup
 09-ci-04-jenkins/terraform/terraform.tfstate
+09-ci-04-jenkins/terraform/cloud_config.yaml
+09-ci-04-jenkins/terraform/cloud_config.yaml
+09-ci-04-jenkins/terraform/.terraform/providers/registry.terraform.io/hashicorp/local/2.2.2/linux_amd64/terraform-provider-local_v2.2.2_x5
+09-ci-04-jenkins/terraform/.terraform/providers/registry.terraform.io/hashicorp/null/3.1.1/linux_amd64/terraform-provider-null_v3.1.1_x5
+09-ci-04-jenkins/terraform/.terraform/providers/registry.terraform.io/yandex-cloud/yandex/0.71.0/linux_amd64/LICENSE
+09-ci-04-jenkins/terraform/.terraform/providers/registry.terraform.io/yandex-cloud/yandex/0.71.0/linux_amd64/CHANGELOG.md
+09-ci-04-jenkins/terraform/.terraform/providers/registry.terraform.io/yandex-cloud/yandex/0.71.0/linux_amd64/terraform-provider-yandex_v0.71.0
+09-ci-04-jenkins/terraform/.terraform.lock.hcl
+09-ci-04-jenkins/terraform/cloud_config.yaml
