@@ -1,0 +1,20 @@
+node("ansible"){
+    stage("Git checkout"){
+        git branch: 'main', credentialsId: 'git', url: 'https://github.com/dotsenkois/elk-stak-testing.git'
+    }
+    stage("install roles"){
+        sh 'ansible-galaxy role install -r playbook/requirements.yml'
+    }
+    stage("Sample define secret_check"){
+        secret_check=true
+    }
+    stage("Run playbook"){
+        if (secret_check){
+            sh 'ansible-playbook -i playbook/inventory/local/hosts.yml playbook/site.yml --private-key /home/jenkins/.ssh/id_rsa -vvv'
+        }
+        else{
+            sh 'ansible-playbook -i playbook/inventory/local/hosts.yml playbook/site.yml --private-key /home/jenkins/.ssh/id_rsa --check --diff'
+        }
+        
+    }
+}

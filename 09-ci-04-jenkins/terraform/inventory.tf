@@ -10,8 +10,6 @@ all:
       ansible_host: ${yandex_compute_instance.jenkins-master.network_interface.0.nat_ip_address}
     jenkins-agent-01:
       ansible_host: ${yandex_compute_instance.jenkins-agent.network_interface.0.nat_ip_address}
-    nexus-01:
-      ansible_host: ${yandex_compute_instance.nexus.network_interface.0.nat_ip_address}
   children:
     jenkins:
       children:
@@ -21,9 +19,9 @@ all:
         jenkins_agents:
           hosts:
               jenkins-agent-01:
-        nexus:
-          hosts:
-            nexus-01:
+        # nexus:
+        #   hosts:
+        #     nexus-01:
       
   vars:
     ansible_connection_type: paramiko
@@ -35,6 +33,6 @@ all:
   depends_on = [
     yandex_compute_instance.jenkins-master,
     yandex_compute_instance.jenkins-agent,
-    yandex_compute_instance.nexus
+    # yandex_compute_instance.nexus
   ]
 }
