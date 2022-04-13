@@ -182,5 +182,8 @@
 09-ci-04-jenkins/terraform/.terraform/providers/registry.terraform.io/yandex-cloud/yandex/0.71.0/linux_amd64/CHANGELOG.md
 09-ci-04-jenkins/terraform/.terraform/providers/registry.terraform.io/yandex-cloud/yandex/0.71.0/linux_amd64/terraform-provider-yandex_v0.71.0
 09-ci-04-jenkins/terraform/.terraform.lock.hcl
-09-ci-04-jenkins/terraform/cloud_config.yaml
-09-ci-04-jenkins/terraform/.terraform/providers/registry.terraform.io/yandex-cloud/yandex/0.71.0/linux_amd64/README.md
+cloud_config.yaml
+**/.terraform/*
+**/terraform.tfstate.backup
+**/terraform.tfstate
+**/.terraform.lock.hcl
