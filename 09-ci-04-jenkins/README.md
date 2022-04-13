@@ -1,4 +1,8 @@
 # Домашнее задание к занятию "09.04 Jenkins"
+## Выполненное ДЗ
+[Declarative Pipeline](https://github.com/dotsenkois/elk_role)
+
+[Scripted Pipeline](https://github.com/dotsenkois/devops-netology/blob/main/09-ci-04-jenkins/ScriptedJenkinsfile)
 
 ## Подготовка к выполнению
 
