@@ -6,22 +6,25 @@ resource "local_file" "inventory" {
 ---
 all:
   hosts:
-    jenkins-master-01:
-      ansible_host: ${yandex_compute_instance.jenkins-master.network_interface.0.nat_ip_address}
-    jenkins-agent-01:
-      ansible_host: ${yandex_compute_instance.jenkins-agent.network_interface.0.nat_ip_address}
+    teamcity-server:
+      ansible_host: ${yandex_compute_instance.teamcity-server.network_interface.0.nat_ip_address}
+    teamcity-agent:
+      ansible_host: ${yandex_compute_instance.teamcity-agent.network_interface.0.nat_ip_address}
+    nexus:
+      ansible_host: ${yandex_compute_instance.nexus.network_interface.0.nat_ip_address}
+
   children:
     jenkins:
       children:
         jenkins_masters:
           hosts:
-            jenkins-master-01:
+            teamcity-server:
         jenkins_agents:
           hosts:
-              jenkins-agent-01:
-        # nexus:
-        #   hosts:
-        #     nexus-01:
+              teamcity-agent:
+        nexus:
+          hosts:
+            nexus:
       
   vars:
     ansible_connection_type: paramiko
@@ -31,8 +34,8 @@ all:
   
 
   depends_on = [
-    yandex_compute_instance.jenkins-master,
-    yandex_compute_instance.jenkins-agent,
-    # yandex_compute_instance.nexus
+    yandex_compute_instance.teamcity-server,
+    yandex_compute_instance.teamcity-agent,
+    yandex_compute_instance.nexus
   ]
 }

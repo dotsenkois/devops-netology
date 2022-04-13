@@ -1,0 +1,5 @@
+#cloud-config
+ssh_pwauth: no
+users:
+  - name: dotsenkois
+    sudo: ALL=(ALL) NOPASSWD:ALL

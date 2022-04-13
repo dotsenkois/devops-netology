@@ -1,8 +1,8 @@
-resource "yandex_compute_instance" "jenkins-master" {
-name        = "jenkins-master"
+resource "yandex_compute_instance" "nexus" {
+name        = "nexus-${var.VM_name_generate["lesson"]}"
 platform_id = var.yc_platform_id
 zone        = var.yc_zone
-hostname = "jenkins-master"
+hostname = "nexus"
 
   resources {
     core_fraction = 20
@@ -18,12 +18,13 @@ hostname = "jenkins-master"
   }
 
   network_interface {
-    subnet_id = yandex_vpc_subnet.subnet-1.id
-    ip_address = var.yc_instances_sn["jenkins-master"]
+    subnet_id = yandex_vpc_subnet.subnet.id
+    ip_address = var.yc_instances_sn["nexus"]
     nat       = "true"
   }
 
   metadata = {
+    ssh-keys = "dotsenkois:${file("/home/dotsenkois/.ssh/id_rsa.pub")}"
     user-data = file("${path.module}/cloud_config.yaml")
   }
 

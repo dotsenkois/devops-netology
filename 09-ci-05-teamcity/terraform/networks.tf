@@ -1,10 +1,10 @@
-resource "yandex_vpc_network" "network-1" {
-  name = "network1"
+resource "yandex_vpc_network" "network" {
+  name = "network-${var.VM_name_generate["school"]}-${var.VM_name_generate["groupe"]}-${var.VM_name_generate["lesson"]}"
 }
 
-resource "yandex_vpc_subnet" "subnet-1" {
-  name       = "subnet1"
-  zone       = "ru-central1-c"
-  network_id = yandex_vpc_network.network-1.id
+resource "yandex_vpc_subnet" "subnet" {
+  name       = "subnet-${var.VM_name_generate["school"]}-${var.VM_name_generate["groupe"]}-${var.VM_name_generate["lesson"]}"
+  zone       = var.yc_zone
+  network_id = yandex_vpc_network.network.id
   v4_cidr_blocks = ["10.130.0.0/24"]
 }
