@@ -1,5 +1,13 @@
 # Домашнее задание к занятию "09.05 Teamcity"
 
+## Ответ на домашнее задание
+форк репозитория: 
+[dotsenkois/example-teamcity](https://github.com/dotsenkois/example-teamcity)
+
+<p align="center">
+  <img width="1200" height="600" alt="КОРТИНКО" src="./09-ci-05-teamcity.png">
+</p>
+
 ## Подготовка к выполнению
 
 1. В Ya.Cloud создайте новый инстанс (4CPU4RAM) на основе образа `jetbrains/teamcity-server`
