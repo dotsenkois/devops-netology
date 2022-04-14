@@ -5,7 +5,7 @@
 [dotsenkois/example-teamcity](https://github.com/dotsenkois/example-teamcity)
 
 <p align="center">
-  <img width="1200" height="600" alt="КОРТИНКО" src="./09-ci-05-teamcity.png">
+  <img width="1200" height="600" alt="КОРТИНКО" title="КОРТИНКО!!!" src="./09-ci-05-teamcity.png">
 </p>
 
 ## Подготовка к выполнению
