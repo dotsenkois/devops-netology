@@ -68,3 +68,10 @@
 - [09-ci-06-gitlab](./09-ci-06-gitlab/README.md)
 
 ### Мониторинг и логи
+
+- [10-monitoring-01-base](./10-monitoring-01-base/README.md)
+- [10-monitoring-02-systems](./10-monitoring-02-systems/README.md)
+- [10-monitoring-03-grafana](./10-monitoring-03-grafana/README.md)
+- [10-monitoring-04-elk](./10-monitoring-04-elk/README.md)
+-  [10-monitoring-05-sentry](./10-monitoring-05-sentry/README.md)
+- [10-monitoring-06-incident-management](./10-monitoring-06-incident-management/README.md)
