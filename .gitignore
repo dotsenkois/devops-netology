@@ -187,3 +187,4 @@ cloud_config.yaml
 **/terraform.tfstate.backup
 **/terraform.tfstate
 **/.terraform.lock.hcl
+Untitled-1.py
