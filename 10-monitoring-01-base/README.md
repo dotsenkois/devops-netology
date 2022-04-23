@@ -13,6 +13,7 @@
 5. Логирование:
   - [Скрипт](./monitor.py)
   - [расписание](./crontab.txt)
+  - [лог](./2022-04-23-awesome-monitoring.log)
 
 
 
