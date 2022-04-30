@@ -10,7 +10,7 @@
 - Hybrid: Zabbix
 3. 
 <p align="center">
-  <img width="1200" height="600" alt="Скриншот" title="Скриншот" src="./03.png.png">
+  <img width="1200" height="600" alt="Скриншот" title="Скриншот" src="./03.png">
 </p>
 
 1. 3
