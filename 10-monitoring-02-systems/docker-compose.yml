@@ -21,6 +21,7 @@ services:
       - "8089:8089/udp"
 
   telegraf:
+    user: telegraf:112
     # Full tag list: https://hub.docker.com/r/library/telegraf/tags/
     build:
       context: ./images/telegraf/
