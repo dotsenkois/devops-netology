@@ -18,13 +18,11 @@
   <img width="1200" height="600" alt="Скриншот" title="Скриншот" src="./10-monitoring-02-systems.04.png">
 </p>
 
-5. Мне не удалось добиться того, чтобы отображались метрики контейнеров
-    - [telegraf.conf](./telegraf.conf)
-    - [docker-compose.yml](./docker-compose.yml)
-6.
+
+6. 
 <p align="center">
   <img width="1200" height="600" alt="Скриншот" title="Скриншот" src="./10-monitoring-02-systems.06.png">
-</p>5
+</p>
 
 
 ## Обязательные задания
