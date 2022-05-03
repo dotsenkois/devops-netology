@@ -13,12 +13,19 @@
   <img width="1200" height="600" alt="Скриншот" title="Скриншот" src="./03.png">
 </p>
 
-1. 3
-2. 4
-3. 5
-4. 6
-5. 7
-6.  
+4. 3. 
+<p align="center">
+  <img width="1200" height="600" alt="Скриншот" title="Скриншот" src="./10-monitoring-02-systems.04.png">
+</p>
+
+5. Мне не удалось добиться того, чтобы отображались метрики контейнеров
+    - [telegraf.conf](./telegraf.conf)
+    - [docker-compose.yml](./docker-compose.yml)
+6.
+<p align="center">
+  <img width="1200" height="600" alt="Скриншот" title="Скриншот" src="./10-monitoring-02-systems.06.png">
+</p>5
+
 
 ## Обязательные задания
 
@@ -60,16 +67,16 @@ P.S.: если при запуске некоторые контейнеры б�
 
 5. Изучите список [telegraf inputs](https://github.com/influxdata/telegraf/tree/master/plugins/inputs). 
 Добавьте в конфигурацию telegraf следующий плагин - [docker](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/docker):
-```
+```yaml
 [[inputs.docker]]
   endpoint = "unix:///var/run/docker.sock"
 ```
 
 Дополнительно вам может потребоваться донастройка контейнера telegraf в `docker-compose.yml` дополнительного volume и 
 режима privileged:
-```
+```yaml
   telegraf:
-    image: telegraf:1.4.0
+    image: telegraf:1.4.0   
     privileged: true
     volumes:
       - ./etc/telegraf.conf:/etc/telegraf/telegraf.conf:Z
