@@ -34,7 +34,7 @@ node_filesystem_avail_bytes/(1024*1024*1024)
   <img width="1200" height="600" alt="Скриншот" title="скриншот вашей итоговой Dashboard" src="./10-monitoring-03-grafana.03.png">
 </p>
 <p align="center">
-  <img width="300" height="600" alt="Скриншот" title="Телеграм-бот присылает увдомления" src="./10-monitoring-03-grafana.03_phone.jpg">
+  <img width="150" height="300" alt="Скриншот" title="Телеграм-бот присылает увдомления" src="./10-monitoring-03-grafana.03_phone.jpg">
 </p>
 
 4. [04.json-model.json](./04.json-model.json)
