@@ -13,7 +13,7 @@
   <img width="1200" height="600" alt="Скриншот" title="Скриншот" src="./03.png">
 </p>
 
-4. 3. 
+4. 
 <p align="center">
   <img width="1200" height="600" alt="Скриншот" title="Скриншот" src="./10-monitoring-02-systems.04.png">
 </p>

@@ -1,4 +1,44 @@
 # Домашнее задание к занятию "10.03. Grafana"
+## Ответ на домашнее задение
+
+1. <p align="center">
+  <img width="1200" height="600" alt="Скриншот" title="скриншот веб-интерфейса grafana со списком подключенных Datasource" src="./10-monitoring-03-grafana.01.png">
+</p>
+
+2.  
+- Утилизация CPU для nodeexporter (в процентах, 100-idle)
+  ```
+  100 * (rate(node_cpu_seconds_total{mode="system"}[1m])
+  )```
+- CPULA 1/5/15
+  
+  ```
+  node_load1
+  node_load5
+  node_load15
+  ```
+
+- Количество свободной оперативной памяти
+```
+node_memory_MemFree_bytes
+```
+- Количество места на файловой системе
+```
+node_filesystem_avail_bytes/(1024*1024*1024)
+```
+<p align="center">
+  <img width="1200" height="600" alt="Скриншот" title="скриншот получившейся Dashboard" src="./10-monitoring-03-grafana.02.png">
+</p>
+
+3. <p align="center">
+  <img width="1200" height="600" alt="Скриншот" title="скриншот вашей итоговой Dashboard" src="./10-monitoring-03-grafana.03.png">
+</p>
+<p align="center">
+  <img width="1200" height="600" alt="Скриншот" title="Телеграм-бот присылает увдомления" src="./10-monitoring-03-grafana.03_phone.jpg">
+</p>
+
+4. [04.json-model.json](./04.json-model.json)
+
 
 ## Задание повышенной сложности
 
