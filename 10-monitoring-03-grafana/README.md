@@ -8,8 +8,8 @@
 2.  
 - Утилизация CPU для nodeexporter (в процентах, 100-idle)
   ```
-  100 * (rate(node_cpu_seconds_total{mode="system"}[1m])
-  )```
+  100 * (rate(node_cpu_seconds_total{mode="system"}[1m]))
+  ```
 - CPULA 1/5/15
   
   ```
