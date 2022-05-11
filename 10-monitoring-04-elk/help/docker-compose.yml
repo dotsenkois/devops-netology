@@ -64,7 +64,7 @@ services:
       - es-warm
 
   logstash:
-    image: logstash/logstash:6.3.2
+    image: logstash:8.2.0
     container_name: logstash
     ports:
       - 5046:5046
