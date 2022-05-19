@@ -75,3 +75,10 @@
 - [10-monitoring-04-elk](./10-monitoring-04-elk/README.md)
 - [10-monitoring-05-sentry](./10-monitoring-05-sentry/README.md)
 - [10-monitoring-06-incident-management](./10-monitoring-06-incident-management/README.md)
+
+## Администрирование и конфигурация Kubernetes
+### Микросервисная архитектура
+- [11-microservices-01-intro](./11-microservices-01-intro/README.md)
+- [11-microservices-02-principles](./11-microservices-02-principles/README.md)
+- [11-microservices-03-approaches](./11-microservices-03-approaches/README.md)
+- [11-microservices-04-scaling](./11-microservices-04-scaling/README.md)
