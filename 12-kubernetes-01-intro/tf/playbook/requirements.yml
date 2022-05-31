@@ -1,0 +1,8 @@
+# Install a role from GitHub
+- name: install_minikube
+  src: https://github.com/dotsenkois/install_minikube
+  scm: git
+
+- name: k8s_run_hello_world
+  src: https://github.com/dotsenkois/k8s_run_hello_world
+  scm: git

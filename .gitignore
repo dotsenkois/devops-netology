@@ -173,7 +173,6 @@
 09-ci-03-cicd/terraform/terraform.tfstate.backup
 09-ci-03-cicd/terraform/main.tf.bkp
 09-ci-03-cicd/example/.scannerwork/report-task.txt
-09-ci-04-jenkins/terraform/.terraform.tfstate.lock.info
 09-ci-04-jenkins/terraform/terraform.tfstate.backup
 09-ci-04-jenkins/terraform/terraform.tfstate
 09-ci-04-jenkins/terraform/.terraform/providers/registry.terraform.io/hashicorp/local/2.2.2/linux_amd64/terraform-provider-local_v2.2.2_x5
@@ -188,3 +187,4 @@ cloud_config.yaml
 **/terraform.tfstate
 **/.terraform.lock.hcl
 Untitled-1.py
+**/*.terraform.tfstate.lock.info

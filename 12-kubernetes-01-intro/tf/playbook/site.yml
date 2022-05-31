@@ -1,0 +1,5 @@
+---
+- hosts: minikube
+  roles:
+    - install_minikube
+    - k8s_run_hello_world
