@@ -82,3 +82,19 @@
 - [11-microservices-02-principles](./11-microservices-02-principles/README.md)
 - [11-microservices-03-approaches](./11-microservices-03-approaches/README.md)
 - [11-microservices-04-scaling](./11-microservices-04-scaling/README.md)
+
+### Администрирование кластера Kubernetes
+
+- [12-kubernetes-01-intro](./12-kubernetes-01-intro/README.md)
+- [12-kubernetes-02-commands](./12-kubernetes-02-commands/README.md)
+- [12-kubernetes-03-install-part-1](./12-kubernetes-03-install-part-1/README.md)
+- [12-kubernetes-03-install-part-2](./12-kubernetes-03-install-part-2/README.md)
+- [12-kubernetes-05-cni](./12-kubernetes-05-cni/README.md)
+
+### Конфигурация Kubernetes
+
+- [13-kubernetes-config-01-objects](./13-kubernetes-config-01-objects/README.md)
+- [13-kubernetes-config-02-mounts](./13-kubernetes-config-02-mounts/README.md)
+- [13-kubernetes-config-03-kubectl](./13-kubernetes-config-03-kubectl/README.md)
+- [13-kubernetes-config-04-helm](./13-kubernetes-config-04-helm/README.md)
+- [13-kubernetes-config-05-qbec](./13-kubernetes-config-05-qbec/README.md)
