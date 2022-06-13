@@ -1,0 +1,26 @@
+---
+# tasks file for k8s_configure_logreader_user
+- name: Install jq
+  become: true
+  apt:
+    name: "{{ packages }}"
+    state: present
+    update_cache: yes
+  vars:
+    packages:
+      - jq
+
+- name: copy rundeck files
+  copy: src=./k8s_configure_logreader_user/files/{{ item }} dest=/home/dotsenkois/
+  with_items:
+  - csr.cnf
+  - csr.yaml
+  - kubeconfig.tpl
+  - logreader_role.yml
+  - logreader_user.yml
+
+- name: copy sh.sh
+  copy: src=./k8s_configure_logreader_user/files/{{ item }} dest=/home/dotsenkois/
+  with_items:
+  - sh.sh
+

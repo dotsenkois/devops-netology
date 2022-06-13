@@ -1,0 +1,11 @@
+# Install a role from GitHub
+- name: k8s_setup
+  src: ./k8s_setup
+
+- name: k8s_control_plane
+  src: ./k8s_control_plane
+
+- name: k8s_workers
+  src: ./k8s_workers
+
+  

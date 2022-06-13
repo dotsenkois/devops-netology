@@ -1,0 +1,16 @@
+---
+- hosts: all
+  tasks:
+  - include_tasks: ./k8s_setup/tasks/main.yml
+
+- hosts: control-plane
+  tasks:
+    - include_tasks: ./k8s_control_plane/tasks/main.yml
+
+- hosts: workers
+  tasks:
+  - include_tasks: ./k8s_workers/tasks/main.yml
+
+- hosts: control-plane
+  tasks:
+  - include_tasks: ./k8s_configure_logreader_user/tasks/main.yml

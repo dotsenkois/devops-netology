@@ -1,0 +1,37 @@
+---
+- name: Check that the config exists
+  stat:
+    path: $HOME/.kube/config
+  register: Kubeadm_is_init
+
+- name: Kubeadm init
+  become: true
+  shell: kubeadm init --node-name=cp01 --apiserver-cert-extra-sans=master --pod-network-cidr 10.244.0.0/16
+  when: not Kubeadm_is_init.stat.exists
+
+- name: Copy config to home directory
+  shell: mkdir -p $HOME/.kube && sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config && sudo chown $(id -u):$(id -g) $HOME/.kube/config
+  when: not Kubeadm_is_init.stat.exists
+
+- name: Download CNI plugin
+  shell: kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
+  when: not Kubeadm_is_init.stat.exists
+
+- name: Kubeadm token print
+  become: true
+  shell: kubeadm token create --print-join-command
+  register: k8s_token
+
+- name: Creating a file with content
+  become: true
+  copy:
+    dest: /tmp/join.sh
+    content: |
+      #!/bin/bash
+      {{ k8s_token.stdout }}
+
+- name: export a token
+  fetch:
+    src: /tmp/join.sh
+    dest: /tmp/join.sh
+    flat: yes
