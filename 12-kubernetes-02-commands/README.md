@@ -10,7 +10,7 @@
 
 - [Установка софта](./tf/playbook/k8s_setup/)
 
-- [подготовка controle-plane](./tf/playbook/k8s_control_plane.)
+- [подготовка controle-plane](./tf/playbook/k8s_control_plane/)
 
 - [подготовка workers](./tf/playbook/k8s_workers/)
 
