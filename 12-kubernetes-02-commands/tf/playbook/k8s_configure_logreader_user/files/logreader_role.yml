@@ -2,12 +2,34 @@
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
+  name: logreader
   namespace: app-namespace
+rules:
+  - apiGroups: [ "" ]
+    resources: [ deployments ]
+    verbs: ["get", "list"]
+
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
   name: logreader
 rules:
-- apiGroups: [""] # "" indicates the core API group
-  resources: ["pods"]
-  verbs: ["get", "watch", "describe", "list"]
-- apiGroups: ["apps"]
-  resources: ["pods"]
-  verbs: ["get", "list", "describe", "logs"]
+  - apiGroups: [ "" ]
+    resources: [ deployments ]
+    verbs: ["get", "list"]
+
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: logreader
+  namespace: app-namespace
+subjects:
+- kind: User
+  name: logreader
+  apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: ClusterRole
+  name: edit
+  apiGroup: rbac.authorization.k8s.io

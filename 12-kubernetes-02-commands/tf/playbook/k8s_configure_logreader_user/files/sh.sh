@@ -67,9 +67,32 @@ kubectl apply -f ./logreader_user.yml
 kubectl get deployment
 kubectl get pods
 
+# Config
+
+# apiVersion: v1
+# clusters:
+# - cluster:
+#     certificate-authority-data: LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUM>    server: https://10.130.0.20:6443
+#   name: kubernetes
+# contexts:
+# - context:
+#     cluster: kubernetes
+#     user: logreader
+#   name: logreader-context
+# current-context: app-namespace
+# kind: Config
+# preferences: {}
+# users:
+# - name: logreader
+#   user:
+#     client-certificate: /home/logreader/.certs/logreader.crt
+#     client-key: /home/logreader/.certs/logreader.key
+
+
+
 #3
 
 kubectl scale deployment hello-node --replicas 5 --namespace=app-namespace
 sleep 5
 kubectl get deployment
-kubectl get pods
+kubectl get podsd
