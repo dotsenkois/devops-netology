@@ -32,29 +32,30 @@ hello-node-6d5f754cc9-qx9bq   1/1     Running   0          53s
 
 ## Ответ на задание 2
 
-файл ролей и привязки. и вывод из косоли, того, что может делать пользователь опсле применения
+файл ролей и привязки. и вывод из косоли, того, что может делать пользователь после применения
 
 ```yml
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
 metadata:
-  name: logreader
+  name: logreader-role
   namespace: app-namespace
 rules:
   - apiGroups: [ "" ]
-    resources: [ deployments ]
-    verbs: ["get", "list"]
+    resources: [ "pods" ]
+    verbs: [ "get", "list", "describe", "watch" ]
 
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: logreader
+  name: logreader-clusterrole
+  namespace: app-namespace
 rules:
   - apiGroups: [ "" ]
-    resources: [ deployments ]
-    verbs: ["get", "list"]
+    resources: [ "pods" ]
+    verbs: [ "get", "list", "describe", "watch" ]
 
 ---
 apiVersion: rbac.authorization.k8s.io/v1
@@ -67,21 +68,24 @@ subjects:
   name: logreader
   apiGroup: rbac.authorization.k8s.io
 roleRef:
-  kind: ClusterRole
-  name: edit
+  kind: Role
+  name: logreader-role
   apiGroup: rbac.authorization.k8s.io
+
 ```
 ```console
-logreader@control-plane-node-01:/home/dotsenkois$ kubectl auth can-i get pods -n app-namespace
+logreader@control-plane-node-01:~$ kubectl auth can-i get pods -n app-namespace
 yes
-logreader@control-plane-node-01:/home/dotsenkois$ kubectl auth can-i create pods -n app-namespace
+logreader@control-plane-node-01:~$ kubectl auth can-i list pods -n app-namespace
 yes
-logreader@control-plane-node-01:/home/dotsenkois$ kubectl auth can-i delete
-pods -n app-namespace
+logreader@control-plane-node-01:~$ kubectl auth can-i watch pods -n app-namespace
 yes
-logreader@control-plane-node-01:/home/dotsenkois$ kubectl auth can-i create
-deploy -n app-namespace
-yes
+logreader@control-plane-node-01:~$ kubectl auth can-i delete pods -n app-namespace
+no
+logreader@control-plane-node-01:~$ kubectl auth can-i create pods -n app-namespace
+no
+logreader@control-plane-node-01:~$ kubectl auth can-i get pods
+no
 ```
 
 
