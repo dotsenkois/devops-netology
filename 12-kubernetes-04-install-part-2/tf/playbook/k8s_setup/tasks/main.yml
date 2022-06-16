@@ -1,0 +1,46 @@
+---
+- name: Install packages that allow apt to be used over HTTPS
+  become: true
+  apt:
+    name: "{{ packages }}"
+    state: present
+    update_cache: yes
+  vars:
+    packages:
+    - apt-transport-https
+    - ca-certificates
+    - curl
+    - gnupg-agent
+    - software-properties-common
+
+- name: Add kubernetes apt-key
+  become: true
+  apt_key:
+    url: https://packages.cloud.google.com/apt/doc/apt-key.gpg
+    state: present
+
+- name: Add kubernetes apt repository
+  become: true
+  apt_repository:
+    repo: 'deb http://apt.kubernetes.io/ kubernetes-xenial main'
+    state: present
+    filename: kubernetes
+
+
+- name: Install Kubernetes packages
+  become: true
+  apt:
+    name: "{{ packages }}"
+    state: present
+    update_cache: yes
+  vars:
+    packages:
+      - kubelet
+      - kubeadm
+      - kubectl
+      - containerd
+      - docker.io
+
+- name: Fix settings
+  become: true
+  shell: echo 1 > /proc/sys/net/ipv4/ip_forward && modprobe br_netfilter

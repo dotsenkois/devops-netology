@@ -1,0 +1,12 @@
+---
+- name: copy join.sh to worker node
+  become: true
+  copy:
+    src: /tmp/join.sh
+    dest: /tmp/join.sh
+    owner: root
+    mode: 777
+
+- name: Join node
+  become: true
+  shell: /tmp/join.sh

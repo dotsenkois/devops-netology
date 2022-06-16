@@ -1,0 +1,55 @@
+resource "null_resource" "echo-all" {
+  provisioner "local-exec" {
+    command = "echo '---' > ${var.HostsPath}; echo 'all:'>> ${var.HostsPath}; echo '  hosts:' >> ${var.HostsPath}" 
+  }
+
+  depends_on = [
+    yandex_compute_instance.control-plane,
+    yandex_compute_instance.worker,
+  ]
+}
+
+resource "null_resource" "echo1" {
+  for_each    = var.yc_instances_control-plane
+  provisioner "local-exec" {
+    command = "echo '    ${each.key}:' >> ${var.HostsPath}; echo '      ansible_host: ${each.value} '>> ${var.HostsPath};" 
+  }
+
+  depends_on = [
+    null_resource.echo-all
+  ]
+}
+
+resource "null_resource" "echo2" {
+  for_each    = var.yc_instances_workers
+  provisioner "local-exec" {
+    command = "echo '    ${each.key}:' >> ${var.HostsPath}; echo '      ansible_host: ${each.value} '>> ${var.HostsPath};" 
+  }
+
+  depends_on = [
+    null_resource.echo1,
+  ]
+}
+
+resource "null_resource" "echo3" {
+  for_each    = var.yc_instances_workers
+  provisioner "local-exec" {
+    command = "echo '  ' >> ${var.HostsPath}; echo '      ansible_host: ${each.value} '>> ${var.HostsPath};" 
+  }
+
+  depends_on = [
+    null_resource.echo2,
+  ]
+}
+
+
+resource "null_resource" "echo-vars" {
+  for_each    = var.yc_instances_control-plane
+  provisioner "local-exec" {
+    command = "echo '  vars:' >> ${var.HostsPath}; echo '    ansible_connection_type: paramiko' >> ${var.HostsPath}; echo '    ansible_user: dotsenkois' >> ${var.HostsPath};" 
+  }
+
+  depends_on = [
+    null_resource.echo3
+  ]
+}

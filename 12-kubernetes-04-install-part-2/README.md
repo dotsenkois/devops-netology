@@ -1,4 +1,94 @@
 # Домашнее задание к занятию "12.4 Развертывание кластера на собственных серверах, лекция 2"
+## Ответ на домашнее задение.
+## 2 Инвентарь для облака. (на примере YC)
+
+В файле [variables.tf](./tf/terraform/variables.tf) перечислены инстансы и их параметры
+```t
+variable "yc_instances_control-plane" {
+  type = map(any)
+  default = {
+    "control-plane-node-01" = "10.130.0.20"
+  }
+}
+
+variable "yc_instances_workers" {
+  type = map(any)
+  default = {
+    "worker-node-01" = "10.130.0.51"
+    "worker-node-02" = "10.130.0.52"
+    "worker-node-03" = "10.130.0.53"
+    "worker-node-04" = "10.130.0.54"
+
+  }
+}
+
+variable "control-plane_resources" {
+  type = map(any)
+  default = {
+    "core_fraction"  = 20
+    "cores"          = 2
+    "memory"         = 6
+    "boot_disk_size" = 15
+  }
+}
+
+variable "workers_resources" {
+  type = map(any)
+  default = {
+    "core_fraction"  = 20
+    "cores"          = 2
+    "memory"         = 4
+    "boot_disk_size" = 15
+  }
+}
+```
+- с помощью [inventory.tf](./tf/terraform/inventory.tf)
+создается инвентарь следующего вида:
+
+```yml
+---
+all:
+  hosts:
+    control-plane-node-01:
+      ansible_host: 51.250.43.122
+    worker-node-01:
+      ansible_host: 51.250.40.114
+    worker-node-02:
+      ansible_host: 51.250.47.14
+    worker-node-03:
+      ansible_host: 51.250.44.51
+    worker-node-04:
+      ansible_host: 51.250.34.218
+
+  children:
+    control-plane:
+      hosts:
+        control-plane-node-01:
+    workers:
+      hosts:
+        worker-node-01:
+        worker-node-02:
+        worker-node-03:
+        worker-node-04:
+
+  vars:
+    ansible_connection_type: paramiko
+    ansible_user: dotsenkois
+
+```
+- В резульате всех задач [плейбука](./tf/playbook/site.yml) получается такой кластер: 
+
+<p align="center">
+  <img width="1200" height="600" alt="Скриншот" title="yandex cloud" src="./02-yc.png">
+</p>
+
+<p align="center">
+  <img width="1200" height="600" alt="Скриншот" title="yandex cloud" src="./02-console.png">
+</p>
+
+
+
+
 Новые проекты пошли стабильным потоком. Каждый проект требует себе несколько кластеров: под тесты и продуктив. Делать все руками — не вариант, поэтому стоит автоматизировать подготовку новых кластеров.
 
 ## Задание 1: Подготовить инвентарь kubespray
