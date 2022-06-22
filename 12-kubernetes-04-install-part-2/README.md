@@ -1,6 +1,57 @@
 # Домашнее задание к занятию "12.4 Развертывание кластера на собственных серверах, лекция 2"
 ## Ответ на домашнее задение.
-## 2 Инвентарь для облака. (на примере YC)
+
+## 1.
+```yml
+---
+all:
+  hosts:
+    control-plane-node-01:
+      ansible_host: 51.250.37.43
+    worker-node-01:
+      ansible_host: 51.250.38.101
+    worker-node-02:
+      ansible_host: 51.250.37.148
+    worker-node-03:
+      ansible_host: 51.250.35.104
+    worker-node-04:
+      ansible_host: 51.250.47.188
+
+k8s_cluster:
+  children:
+    kube_control_plane:
+      hosts:
+        control-plane-node-01:
+    kube_node:
+      hosts:
+        worker-node-01:
+        worker-node-02:
+        worker-node-03:
+        worker-node-04:
+    etcd:
+      hosts:
+        control-plane-node-01:
+    calico_rr:
+      hosts:
+
+  vars:
+    ansible_connection_type: paramiko
+    ansible_user: dotsenkois
+
+```
+```console
+PLAY RECAP *****************************************************************************************************************************************
+control-plane-node-01      : ok=748  changed=143  unreachable=0    failed=0    skipped=1229 rescued=0    ignored=9   
+localhost                  : ok=3    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+worker-node-01             : ok=497  changed=93   unreachable=0    failed=0    skipped=722  rescued=0    ignored=2   
+worker-node-02             : ok=497  changed=93   unreachable=0    failed=0    skipped=721  rescued=0    ignored=2   
+worker-node-03             : ok=497  changed=93   unreachable=0    failed=0    skipped=721  rescued=0    ignored=2   
+worker-node-04             : ok=497  changed=93   unreachable=0    failed=0    skipped=721  rescued=0    ignored=2   
+
+Tuesday 21 June 2022  23:50:05 -0400 (0:00:00.116)       0:29:28.388 ********** 
+```
+
+## 2. Инвентарь для облака. (на примере YC)
 
 В файле [variables.tf](./tf/terraform/variables.tf) перечислены инстансы и их параметры
 ```t
