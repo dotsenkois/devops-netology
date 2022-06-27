@@ -1,7 +1,7 @@
 # Домашнее задание к занятию "12.5 Сетевые решения CNI"
 ## Решение
 # 1.
-1. Класре настроен при помощи kuberspray
+1. Класре настроен при помощи kuberspray. Подняты [поды](https://github.com/aak74/kubernetes-for-beginners/tree/master/16-networking/20-network-policy/manifests/main)
 2. Проверка работы политик (sh.sh):
 
 
@@ -40,7 +40,7 @@ Praqma Network MultiTool (with NGINX) - frontend-c74c5646c-dmxfh - 10.233.78.14
 Praqma Network MultiTool (with NGINX) - cache-b7cbd9f8f-95mt4 - 10.233.78.16
 Praqma Network MultiTool (with NGINX) - backend-869fd89bdc-fwck8 - 10.233.78.15
 ```
- - 00-default.yaml:
+ - [00-default.yaml](https://github.com/aak74/kubernetes-for-beginners/blob/master/16-networking/20-network-policy/manifests/network-policy/00-default.yaml):
 ```console
 root@control-plane-node-01:~/kubernetes-for-beginners/16-networking/20-network-policy/manifests/network-policy# kubectl apply -f 00-default.yaml
 networkpolicy.networking.k8s.io/default-deny-ingress created
@@ -59,7 +59,7 @@ command terminated with exit code 28
 command terminated with exit code 28
 command terminated with exit code 28
 ```
- - 10-frontend.yaml:
+ - [10-frontend.yaml](https://github.com/aak74/kubernetes-for-beginners/blob/master/16-networking/20-network-policy/manifests/network-policy/10-frontend.yaml):
 ```console
 root@control-plane-node-01:~/kubernetes-for-beginners/16-networking/20-network-policy/manifests/network-policy# kubectl delete -f 00-default.yaml
 networkpolicy.networking.k8s.io "default-deny-ingress" deleted
@@ -81,7 +81,7 @@ command terminated with exit code 28
 Praqma Network MultiTool (with NGINX) - cache-b7cbd9f8f-95mt4 - 10.233.78.16
 Praqma Network MultiTool (with NGINX) - backend-869fd89bdc-fwck8 - 10.233.78.15
 ```
- - 20-backend.yaml:
+ - [20-backend.yaml](https://github.com/aak74/kubernetes-for-beginners/blob/master/16-networking/20-network-policy/manifests/network-policy/20-backend.yaml):
 ```console
 root@control-plane-node-01:~/kubernetes-for-beginners/16-networking/20-network-policy/manifests/network-policy# kubectl apply -f 20-backend.yaml
 networkpolicy.networking.k8s.io/backend created
@@ -101,7 +101,7 @@ Praqma Network MultiTool (with NGINX) - cache-b7cbd9f8f-95mt4 - 10.233.78.16
 command terminated with exit code 28
 
 ```
- - 30-cache.yaml:
+ - [30-cache.yaml](https://github.com/aak74/kubernetes-for-beginners/blob/master/16-networking/20-network-policy/manifests/network-policy/30-cache.yaml):
 ```console
 root@control-plane-node-01:~/kubernetes-for-beginners/16-networking/20-network-policy/manifests/network-policy# kubectl apply -f 30-cache.yaml
 networkpolicy.networking.k8s.io/cache created
