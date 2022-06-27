@@ -24,7 +24,7 @@ kubectl exec cache-b7cbd9f8f-95mt4 -- curl -s -m 1 cache
 kubectl exec cache-b7cbd9f8f-95mt4 -- curl -s -m 1 backend
    ```
 
- - Политика поумолчанию:
+ - Политика по умолчанию:
 ```console
 root@control-plane-node-01:~# ./sh.sh
 From frontend
