@@ -98,3 +98,20 @@
 - [13-kubernetes-config-03-kubectl](./13-kubernetes-config-03-kubectl/README.md)
 - [13-kubernetes-config-04-helm](./13-kubernetes-config-04-helm/README.md)
 - [13-kubernetes-config-05-qbec](./13-kubernetes-config-05-qbec/README.md)
+
+## Kubernetes и облачные сервисы
+
+- [14.1](./14.1/README.md)
+- [14.2](./14.2/README.md)
+- [14.3](./14.3/README.md)
+- [14.5](./14.5/README.md)
+
+
+- [15.1](./15.1/README.md)
+- [15.2](./15.2/README.md)
+- [15.3](./15.3/README.md)
+- [15.4](./15.4/README.md)
+
+## Дипломный блок профессии DevOps-инженер
+
+[Проект](https://github.com/dotsenkois/devops-diplom-yandexcloud)
