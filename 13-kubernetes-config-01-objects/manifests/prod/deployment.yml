@@ -1,0 +1,81 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+  namespace: prod
+  labels:
+    app: frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+      - name: frontend
+        image:  dotsenkois/kuber_frontend
+        ports:
+        - containerPort: 80
+        env:
+        - name: BASE_URL
+          value: http://backend:9000
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+  namespace: prod
+  labels:
+    app: backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+      - name: backend
+        image: dotsenkois/kuber_backend
+        ports:
+        - containerPort: 9000
+        env:
+          - name: DATABASE_URL
+            value: postgres://postgres:postgres@db:5432/test
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend
+  namespace: prod
+spec:
+  ports:
+    - name: web
+      port: 80
+      targetPort: 80
+  selector:
+    app: frontend
+  type: LoadBalancer
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend
+  namespace: prod
+spec:
+  ports:
+    - name: backend
+      port: 9000
+      targetPort: 9000
+  selector:
+    app: backend
+  type: ClusterIP
