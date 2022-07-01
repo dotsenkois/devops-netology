@@ -1,31 +1,57 @@
 # Домашнее задание к занятию "13.1 контейнеры, поды, deployment, statefulset, services, endpoints"
 
 ## Решение
-Для хранения базы данных поднята дополнительная машина: ubuntu, hn:storage, IP local:10.130.0.24.
-Настроен [сервер nfs](https://ubuntu.com/server/docs/service-nfs)
-
-server-side:
-```console
-apt install nfs-kernel-server
-systemctl start nfs-kernel-server.service
-mkdir /pg_data
-echo '/pg_data *(rw,sync,no_subtree_check,no_root_squash)' >> /etc/exports
-exportfs -a
-```
-client-side:
-```console
-apt install nfs-common
-mkdir /opt/pg_data
-mount 10.130.0.24:/pg_data /opt/pg_data
-```
 
 порядок выполнения операций описан в файле [runme.sh](./manifests/runme.sh)
 
-created [2 namespaces](manifests/namespaces.yml)
+созданы [2 namespaces](manifests/namespaces.yml)
+
+```console
+cat 13-1.sh
+kubectl get po
+kubectl get svc
+kubectl get deployments.apps
+kubectl get statefulsets.apps
+kubectl describe service frontend
+```
 
 1. stage:
    - [deployment](./manifests/stage/deployment.yml)
    - [statefulset](./manifests/stage/statefulset.yml)
+```console
+root@control-plane-node-01:~# ./13-1.sh
+NAME                                READY   STATUS    RESTARTS   AGE
+db-0                                1/1     Running   0          76m
+frontend-backend-85485c4cb9-g7fph   2/2     Running   0          89m
+NAME               TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)             AGE
+db                 ClusterIP   10.233.11.185   <none>        5432/TCP            89m
+frontend-backend   ClusterIP   10.233.11.184   <none>        8000/TCP,9000/TCP   89m
+NAME               READY   UP-TO-DATE   AVAILABLE   AGE
+frontend-backend   1/1     1            1           89m
+NAME   READY   AGE
+db     1/1     89m
+Name:              frontend-backend
+Namespace:         stage
+Labels:            <none>
+Annotations:       <none>
+Selector:          app=frontend
+Type:              ClusterIP
+IP Family Policy:  SingleStack
+IP Families:       IPv4
+IP:                10.233.11.184
+IPs:               10.233.11.184
+Port:              frontend  8000/TCP
+TargetPort:        80/TCP
+Endpoints:         <none>
+Port:              backend  9000/TCP
+TargetPort:        9000/TCP
+Endpoints:         <none>
+Session Affinity:  None
+Events:            <none>
+```
+2. prod:
+   - [deployment](./manifests/prod/deployment.yml)
+   - [statefulset](./manifests/prod/statefulset.yml)
 ```console
 root@control-plane-node-01:~# ./13-1.sh
 NAME                      READY   STATUS    RESTARTS   AGE
@@ -42,9 +68,7 @@ frontend   1/1     1            1           133m
 NAME   READY   AGE
 db     1/1     66m
 ```
-2. prod:
-   - [deployment](./manifests/prod/deployment.yml)
-   - [statefulset](./manifests/prod/statefulset.yml)
+
 3. endpoint:
    - [endpoint](./manifests/prod/endpoint.yml)
 

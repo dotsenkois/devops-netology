@@ -27,7 +27,7 @@ spec:
           - name: POSTGRES_USER
             value: postgres
           - name: POSTGRES_DB
-            value: news
+            value: test
 
 ---
 apiVersion: v1
