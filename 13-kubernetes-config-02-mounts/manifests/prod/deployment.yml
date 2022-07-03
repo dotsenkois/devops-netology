@@ -24,6 +24,15 @@ spec:
         env:
         - name: BASE_URL
           value: http://backend:9000
+# 13.2
+        volumeMounts:
+        - mountPath: "/static"
+
+          name: share
+      volumes:
+        - name: share
+          persistentVolumeClaim:
+            claimName: pvc
 
 ---
 apiVersion: apps/v1
@@ -51,6 +60,16 @@ spec:
         env:
           - name: DATABASE_URL
             value: postgres://postgres:postgres@db:5432/test
+# 13.2
+        volumeMounts:
+        - mountPath: /static
+          name: share
+      volumes:
+        - name: share
+          persistentVolumeClaim:
+            claimName: pvc
+
+
 ---
 apiVersion: v1
 kind: Service

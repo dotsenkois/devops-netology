@@ -1,13 +1,12 @@
-# 13.2
 ---
 kind: PersistentVolumeClaim
 apiVersion: v1
 metadata:
-  name: test-dynamic-volume-claim
+  name: pvc
 spec:
   storageClassName: "nfs"
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany
   resources:
     requests:
-      storage: 100Mi
+      storage: 2Gi

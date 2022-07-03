@@ -28,6 +28,15 @@ spec:
             value: postgres
           - name: POSTGRES_DB
             value: test
+# 13.2
+        volumeMounts:
+          - mountPath: "/static"
+            name: share
+      volumes:
+        - name: share
+          persistentVolumeClaim:
+            claimName: pvc
+
 
 ---
 apiVersion: v1

@@ -21,10 +21,20 @@ spec:
         image:  dotsenkois/kuber_frontend
         ports:
         - containerPort: 80
+        volumeMounts:
+        - mountPath: "/static"
+          name: shared
       - name: backend
         image: dotsenkois/kuber_backend
         ports:
         - containerPort: 9000
+        volumeMounts:
+        - mountPath: "/static"
+          name: shared
+      volumes:
+        - name: shared
+          emptyDir: {}
+
 
 ---
 apiVersion: v1
