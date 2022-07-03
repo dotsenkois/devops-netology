@@ -62,10 +62,9 @@ spec:
     - name: web
       port: 80
       targetPort: 80
-      nodePort: 30080
   selector:
     app: frontend
-  type: NodePort
+  type: LoadBalancer
 ---
 apiVersion: v1
 kind: Service

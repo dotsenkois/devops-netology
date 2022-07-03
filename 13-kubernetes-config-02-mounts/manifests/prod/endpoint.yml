@@ -6,7 +6,7 @@ metadata:
   namespace: prod
 subsets: 
   - addresses:
-      - ip: 51.250.45.209
+      - ip: 51.250.47.109
     ports:
       - port: 80
         targetPort: 80

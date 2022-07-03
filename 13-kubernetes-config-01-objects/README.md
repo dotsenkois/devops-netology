@@ -55,18 +55,19 @@ Events:            <none>
 ```console
 root@control-plane-node-01:~# ./13-1.sh
 NAME                      READY   STATUS    RESTARTS   AGE
-backend-db8cf8d59-rhhkp   1/1     Running   0          68m
-db-0                      1/1     Running   0          66m
-frontend-c6dbbc9c-87h7v   1/1     Running   0          68m
-NAME       TYPE           CLUSTER-IP      EXTERNAL-IP   PORT(S)        AGE
-backend    ClusterIP      10.233.22.180   <none>        9000/TCP       133m
-db         ClusterIP      10.233.61.7     <none>        5432/TCP       66m
-frontend   LoadBalancer   10.233.28.95    <pending>     80:32563/TCP   133m
+backend-db8cf8d59-fjt2l   1/1     Running   0          71m
+db-0                      1/1     Running   0          71m
+frontend-c6dbbc9c-srcdw   1/1     Running   0          71m
+NAME       TYPE        CLUSTER-IP     EXTERNAL-IP   PORT(S)        AGE
+backend    ClusterIP   10.233.46.7    <none>        9000/TCP       71m
+db         ClusterIP   10.233.14.9    <none>        5432/TCP       71m
+frontend   NodePort    10.233.6.213   <none>        80:30080/TCP   71m
 NAME       READY   UP-TO-DATE   AVAILABLE   AGE
-backend    1/1     1            1           133m
-frontend   1/1     1            1           133m
+backend    1/1     1            1           71m
+frontend   1/1     1            1           71m
 NAME   READY   AGE
-db     1/1     66m
+db     1/1     71m
+
 ```
 
 3. endpoint:
@@ -78,21 +79,21 @@ Namespace:                prod
 Labels:                   <none>
 Annotations:              <none>
 Selector:                 app=frontend
-Type:                     LoadBalancer
+Type:                     NodePort
 IP Family Policy:         SingleStack
 IP Families:              IPv4
-IP:                       10.233.28.95
-IPs:                      10.233.28.95
+IP:                       10.233.6.213
+IPs:                      10.233.6.213
 Port:                     web  80/TCP
 TargetPort:               80/TCP
-NodePort:                 web  32563/TCP
-Endpoints:                10.233.78.53:80
+NodePort:                 web  30080/TCP
+Endpoints:                10.233.78.71:80
 Session Affinity:         None
 External Traffic Policy:  Cluster
 Events:
   Type    Reason  Age   From                Message
   ----    ------  ----  ----                -------
-  Normal  Type    22m   service-controller  ClusterIP -> LoadBalancer
+  Normal  Type    33s   service-controller  LoadBalancer -> NodePort
 ```
 ## Скрин
 фронтенд доступен из вне (Правда, не по тому порту, по которому хотелось бы)
