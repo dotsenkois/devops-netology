@@ -17,7 +17,7 @@ variable "yc_instances_workers" {
     "worker-node-01" = "10.130.0.51"
     "worker-node-02" = "10.130.0.52"
     "worker-node-03" = "10.130.0.53"
-    "worker-node-04" = "10.130.0.54"
+    # "worker-node-04" = "10.130.0.54"
   }
 }
 

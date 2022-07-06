@@ -188,3 +188,4 @@ cloud_config.yaml
 **/.terraform.lock.hcl
 Untitled-1.py
 **/*.terraform.tfstate.lock.info
+13-tf_for_kube/*
