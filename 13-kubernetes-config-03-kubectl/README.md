@@ -67,6 +67,40 @@ test=#
 
 
 1.  exec
+- frontend
+```console
+root@control-plane-node-01:~# kubectl exec pods/frontend-c6dbbc9c-9qkr4 -c frontend -- curl localhost:80
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>Список</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/build/main.css" rel="stylesheet">
+</head>
+<body>
+    <main class="b-page">
+        <h1 class="b-page__title">Список</h1>
+        <div class="b-page__content b-items js-list"></div>
+    </main>
+    <script src="/build/main.js"></script>
+</body>
+</html>  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   448  100   448    0     0   437k      0 --:--:-- --:--:-- --:--:--  437k
+```
+
+- backend
+- db
+```console
+root@control-plane-node-01:~# kubectl exec -it pods/db-0 -c db -- psql --username=postgres  -d test
+psql (13.7)
+Type "help" for help.
+
+test=#
+
+
+```
 
 # 2
 ```console
