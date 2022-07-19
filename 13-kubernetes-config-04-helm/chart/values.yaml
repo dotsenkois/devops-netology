@@ -14,7 +14,7 @@ deployment:
     service:
       port: 80
       type: NodePort
-      nodePort: 32000
+      nodePort: 32080
   backend:
     name: backend
     replicas: 1
