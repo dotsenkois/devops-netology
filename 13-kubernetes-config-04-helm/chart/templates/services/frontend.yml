@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: {{.Values.namespace }}
+  name: {{ .Values.deployment.frontend.name }}
+  labels:
+    {{- include "chart.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.deployment.frontend.service.type }}
+  ports:
+    - port: {{ .Values.deployment.frontend.service.port }}
+      targetPort: http
+      protocol: TCP
+      name: http
+      nodePort: {{ .Values.deployment.frontend.service.nodePort }}
+  selector:
+    {{- include "chart.selectorLabels" . | nindent 4 }}

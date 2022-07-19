@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: {{.Values.namespace }}
+  name: {{ .Values.statefulset.name }}
+  labels:
+    {{- include "chart.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.statefulset.service.type}}
+  ports:
+    - port: {{ .Values.statefulset.service.port }}
+      targetPort: 5432
+      protocol: TCP
+      name: pg
+  selector:
+    {{- include "chart.selectorLabels" . | nindent 4 }}
+

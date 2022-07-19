@@ -1,7 +1,7 @@
 apiVersion: v2
-name: new_chart
+name: chart
 description: A Helm chart for Kubernetes
-
+icon: https://bvf.ru/forum/customavatars/avatar61921_1.gif
 # A chart can be either an 'application' or a 'library' chart.
 #
 # Application charts are a collection of templates that can be packaged into versioned archives
