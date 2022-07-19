@@ -12,6 +12,5 @@ spec:
       targetPort: http
       protocol: TCP
       name: http
-      nodePort: {{ .Values.deployment.frontend.service.nodePort }}
   selector:
     {{- include "chart.selectorLabels" . | nindent 4 }}
