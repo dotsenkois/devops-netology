@@ -1,0 +1,235 @@
+[
+   {
+      "apiVersion": "v1",
+      "kind": "Service",
+      "metadata": {
+         "labels": {
+            "app.kubernetes.io/instance": "release-name",
+            "app.kubernetes.io/managed-by": "Helm",
+            "app.kubernetes.io/name": "chart",
+            "app.kubernetes.io/version": "1.16.0",
+            "helm.sh/chart": "chart-0.1.0"
+         },
+         "name": "backend",
+         "namespace": "prod"
+      },
+      "spec": {
+         "ports": [
+            {
+               "port": 9000,
+               "protocol": "TCP",
+               "targetPort": 9000
+            }
+         ],
+         "selector": {
+            "app.kubernetes.io/instance": "release-name",
+            "app.kubernetes.io/name": "chart"
+         },
+         "type": "ClusterIP"
+      }
+   },
+   {
+      "apiVersion": "v1",
+      "kind": "Service",
+      "metadata": {
+         "labels": {
+            "app.kubernetes.io/instance": "release-name",
+            "app.kubernetes.io/managed-by": "Helm",
+            "app.kubernetes.io/name": "chart",
+            "app.kubernetes.io/version": "1.16.0",
+            "helm.sh/chart": "chart-0.1.0"
+         },
+         "name": "frontend",
+         "namespace": "prod"
+      },
+      "spec": {
+         "ports": [
+            {
+               "name": "http",
+               "port": 80,
+               "protocol": "TCP",
+               "targetPort": 80
+            }
+         ],
+         "selector": {
+            "app.kubernetes.io/instance": "release-name",
+            "app.kubernetes.io/name": "chart"
+         },
+         "type": "NodePort"
+      }
+   },
+   {
+      "apiVersion": "v1",
+      "kind": "Service",
+      "metadata": {
+         "labels": {
+            "app.kubernetes.io/instance": "release-name",
+            "app.kubernetes.io/managed-by": "Helm",
+            "app.kubernetes.io/name": "chart",
+            "app.kubernetes.io/version": "1.16.0",
+            "helm.sh/chart": "chart-0.1.0"
+         },
+         "name": "db",
+         "namespace": "prod"
+      },
+      "spec": {
+         "ports": [
+            {
+               "name": "db",
+               "port": 5432,
+               "protocol": "TCP",
+               "targetPort": 5432
+            }
+         ],
+         "selector": {
+            "app.kubernetes.io/instance": "release-name",
+            "app.kubernetes.io/name": "chart"
+         },
+         "type": "ClusterIP"
+      }
+   },
+   {
+      "apiVersion": "apps/v1",
+      "kind": "Deployment",
+      "metadata": {
+         "labels": {
+            "app": "backend"
+         },
+         "name": "backend",
+         "namespace": "prod"
+      },
+      "spec": {
+         "replicas": 1,
+         "selector": {
+            "matchLabels": {
+               "app": "backend"
+            }
+         },
+         "template": {
+            "metadata": {
+               "labels": {
+                  "app": "backend"
+               }
+            },
+            "spec": {
+               "containers": [
+                  {
+                     "env": [
+                        {
+                           "name": "DATABASE_URL",
+                           "value": "postgres://postgres:postgres@db:5432/news"
+                        }
+                     ],
+                     "image": "dotsenkois/kuber_backend:latest",
+                     "name": "backend",
+                     "ports": [
+                        {
+                           "containerPort": 9000,
+                           "protocol": "TCP"
+                        }
+                     ]
+                  }
+               ]
+            }
+         }
+      }
+   },
+   {
+      "apiVersion": "apps/v1",
+      "kind": "Deployment",
+      "metadata": {
+         "labels": {
+            "app": "frontend"
+         },
+         "name": "frontend",
+         "namespace": "prod"
+      },
+      "spec": {
+         "replicas": 1,
+         "selector": {
+            "matchLabels": {
+               "app": "frontend"
+            }
+         },
+         "template": {
+            "metadata": {
+               "labels": {
+                  "app": "frontend"
+               }
+            },
+            "spec": {
+               "containers": [
+                  {
+                     "env": [
+                        {
+                           "name": "BASE_URL",
+                           "value": "http://backend:9000"
+                        }
+                     ],
+                     "image": "dotsenkois/kuber_frontend",
+                     "name": "frontend",
+                     "ports": [
+                        {
+                           "containerPort": 80,
+                           "protocol": "TCP"
+                        }
+                     ]
+                  }
+               ]
+            }
+         }
+      }
+   },
+   {
+      "apiVersion": "apps/v1",
+      "kind": "StatefulSet",
+      "metadata": {
+         "name": "db",
+         "namespace": "prod"
+      },
+      "spec": {
+         "replicas": 1,
+         "selector": {
+            "matchLabels": {
+               "app": "db"
+            }
+         },
+         "serviceName": "db",
+         "template": {
+            "metadata": {
+               "labels": {
+                  "app": "db"
+               }
+            },
+            "spec": {
+               "containers": [
+                  {
+                     "env": [
+                        {
+                           "name": "POSTGRES_PASSWORD",
+                           "value": "postgres"
+                        },
+                        {
+                           "name": "POSTGRES_USER",
+                           "value": "postgres"
+                        },
+                        {
+                           "name": "POSTGRES_DB",
+                           "value": "news"
+                        }
+                     ],
+                     "image": "postgres:13-alpine",
+                     "name": "db",
+                     "ports": [
+                        {
+                           "containerPort": 5432
+                        }
+                     ]
+                  }
+               ],
+               "terminationGracePeriodSeconds": 10
+            }
+         }
+      }
+   }
+]

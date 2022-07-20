@@ -48,9 +48,9 @@ chart-1658242060        app1            4               2022-07-19 14:59:22.4243
 
 [converted to json chart.yml](chart.json)
 
-[chart.jsonnet](./chart.jsonnet)
+[chart1.jsonnet](./chart1.jsonnet)
 
-[jsonnet chart.jsonnet > output.json](./output.json)
+[jsonnet chart1.jsonnet > output1.json](./output1.json)
 
 
 ## Задания
