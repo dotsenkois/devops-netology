@@ -1,10 +1,12 @@
 # Домашнее задание к занятию "13.4 инструменты для упрощения написания конфигурационных файлов. Helm и Jsonnet"
 
-# 1
+## Решение
+
+## 1
 
 [чарт](./chart/)
 
-# 2
+## 2
 
 ```console
 root@control-plane-node-01:~/devops-netology/13-kubernetes-config-04-helm# helm install chart --set namespace=app1 --generate-name
@@ -41,7 +43,14 @@ app0.1.3                app1            1               2022-07-19 15:03:26.8473
 chart-1658242060        app1            4               2022-07-19 14:59:22.424300214 +0000 UTC deployed        chart-0.1.1     1.16.0
 
 ```
+## 3
+[helm template chart > chart.yml](chart.yml)
+[converted to json chart.yml](chart.json)
+[chart.jsonnet](./chart.jsonnet)
+[jsonnet chart.jsonnet > output.json](./output.json)
 
+
+## Задания
 В работе часто приходится применять системы автоматической генерации конфигураций. Для изучения нюансов использования разных инструментов нужно попробовать упаковать приложение каждым из них.
 
 ## Задание 1: подготовить helm чарт для приложения

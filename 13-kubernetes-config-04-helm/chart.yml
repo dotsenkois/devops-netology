@@ -1,0 +1,157 @@
+---
+# Source: chart/templates/services/backend.yml
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: prod
+  name: backend
+  labels:
+    helm.sh/chart: chart-0.1.0
+    app.kubernetes.io/name: chart
+    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/version: "1.16.0"
+    app.kubernetes.io/managed-by: Helm
+spec:
+  type: ClusterIP
+  ports:
+    - port: 9000
+      targetPort: 9000
+      protocol: TCP
+  selector:
+    app.kubernetes.io/name: chart
+    app.kubernetes.io/instance: release-name
+---
+# Source: chart/templates/services/frontend.yml
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: prod
+  name: frontend
+  labels:
+    helm.sh/chart: chart-0.1.0
+    app.kubernetes.io/name: chart
+    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/version: "1.16.0"
+    app.kubernetes.io/managed-by: Helm
+spec:
+  type: NodePort
+  ports:
+    - port: 80
+      targetPort: http
+      protocol: TCP
+      name: http
+  selector:
+    app.kubernetes.io/name: chart
+    app.kubernetes.io/instance: release-name
+---
+# Source: chart/templates/services/statefulset.yml
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: prod
+  name: db
+  labels:
+    helm.sh/chart: chart-0.1.0
+    app.kubernetes.io/name: chart
+    app.kubernetes.io/instance: release-name
+    app.kubernetes.io/version: "1.16.0"
+    app.kubernetes.io/managed-by: Helm
+spec:
+  type: ClusterIP
+  ports:
+    - port: 5432
+      targetPort: 5432
+      protocol: TCP
+      name: db
+  selector:
+    app.kubernetes.io/name: chart
+    app.kubernetes.io/instance: release-name
+---
+# Source: chart/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: prod
+  name: backend
+  labels:
+    app: backend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+        - name: backend
+          image: dotsenkois/kuber_backend
+          ports:
+          - containerPort: 9000
+            protocol: TCP
+          env:
+            - name: DATABASE_URL
+              value: postgres://postgres:postgres@db:5432/news
+---
+# Source: chart/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: prod
+  name: frontend
+  labels:
+    app: frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+        - name: frontend
+          image: dotsenkois/kuber_frontend
+          ports:
+          - containerPort: 80
+            protocol: TCP
+          env:
+            - name: BASE_URL
+              value: http://backend:9000
+---
+# Source: chart/templates/statefulset.yml
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  namespace: prod
+  name: db
+spec:
+  selector:
+    matchLabels:
+      app: db
+  serviceName: db
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: db
+    spec:
+      terminationGracePeriodSeconds: 10
+      containers:
+      - name: db
+        image: "postgres:13-alpine"
+        ports:
+        - containerPort: 5432
+        env:
+          - name: POSTGRES_PASSWORD
+            value: postgres
+        
+          - name: POSTGRES_USER
+            value: postgres
+        
+          - name: POSTGRES_DB
+            value: news
