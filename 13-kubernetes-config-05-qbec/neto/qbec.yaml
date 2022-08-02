@@ -4,7 +4,10 @@ metadata:
   name: neto
 spec:
   environments:
-    default:
-      defaultNamespace: default
+    stage:
+      defaultNamespace: stage
+      server: https://127.0.0.1:6443
+    prod:
+      defaultNamespace: prod
       server: https://127.0.0.1:6443
   vars: {}
