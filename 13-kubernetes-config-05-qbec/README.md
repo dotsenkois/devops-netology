@@ -12,7 +12,7 @@ qbec init neto --with-example
 ```
 ## Решение
 
-b
+[qbec](./neto/)
 
 ## Задание
 
