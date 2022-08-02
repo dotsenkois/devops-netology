@@ -12,7 +12,7 @@ production {
       replicas: 3,
     },
     endpoint: {
-      address: "51.250.41.236"
+      address: "51.250.45.77"
     }
   }
 }
