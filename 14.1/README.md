@@ -104,6 +104,7 @@ kubectl get secrets -o json > secrets.json
 kubectl get secret domain-cert -o yaml > domain-cert.yml
 ```
 [secrets.json](./secrets.json)
+
 [domain-cert.yml](./domain-cert.yml)
 
 ### Как удалить секрет?
