@@ -56,6 +56,7 @@ kubectl get secret domain-cert -o json
 CUT
 <details>
   <summary>kubectl get secret domain-cert -o yaml</summary>
+
 ```yaml
 
     apiVersion: v1
@@ -71,12 +72,14 @@ CUT
     uid: 8e9c8f04-2d46-458e-b4dc-5520c44c8a9d
     type: kubernetes.io/tls
 
-    ```
+```
+
 </details>
 
 <details>
   <summary>kubectl get secret domain-cert -o json</summary>
-    ```json
+
+```json
 
     {
         "apiVersion": "v1",
@@ -94,7 +97,7 @@ CUT
         },
         "type": "kubernetes.io/tls"
     }
-    ```
+```
 </details>
 
 
