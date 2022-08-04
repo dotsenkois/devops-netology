@@ -7,6 +7,21 @@ spec:
   containers:
   - name: nginx
     image: nginx:latest
+    env:
+    - name: SECRET_USERNAME
+      valueFrom:
+        secretKeyRef:
+          name: mysecret
+          key: username
+          optional: false # same as default; "mysecret" must exist
+                          # and include a key named "username"
+    - name: SECRET_PASSWORD
+      valueFrom:
+        secretKeyRef:
+          name: mysecret
+          key: password
+          optional: false # same as default; "mysecret" must exist
+                          # and include a key named "password"
     ports:
     - containerPort: 80
       protocol: TCP
@@ -22,22 +37,8 @@ spec:
   volumes:
   - name: certs
     secret:
-    secretName: nginx-cert
+      secretName: nginx-cert
   - name: config
     configMap:
       name: nginx-config
-  env:
-  - name: SECRET_USERNAME
-    valueFrom:
-      secretKeyRef:
-        name: mysecret
-        key: username
-        optional: false # same as default; "mysecret" must exist
-                        # and include a key named "username"
-  - name: SECRET_PASSWORD
-    valueFrom:
-      secretKeyRef:
-        name: mysecret
-        key: password
-        optional: false # same as default; "mysecret" must exist
-                        # and include a key named "password"
+  
