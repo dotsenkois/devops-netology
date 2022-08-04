@@ -12,7 +12,7 @@ spec:
       valueFrom:
         secretKeyRef:
           name: mysecret
-          key: username
+          key: user
           optional: false # same as default; "mysecret" must exist
                           # and include a key named "username"
     - name: SECRET_PASSWORD
