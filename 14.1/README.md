@@ -121,6 +121,20 @@ root@control-plane-node-01:~/certs# kubectl apply -f domain-cert.yml
 secret/domain-cert created
 ```
 
+## 2
+
+```console
+root@control-plane-node-01:~/certs# kubectl create secret tls nginx-cert --cert=cert.crt --key=cert.key -n stage
+secret/nginx-cert created
+root@control-plane-node-01:~/certs# kubectl get secrets --all-namespaces 
+NAMESPACE   NAME          TYPE                DATA   AGE
+default     domain-cert   kubernetes.io/tls   2      14h
+stage       nginx-cert    kubernetes.io/tls   2      6s
+```
+
+
+
+
 ## Задача 1: Работа с секретами через утилиту kubectl в установленном minikube
 
 Выполните приведённые ниже команды в консоли, получите вывод команд. Сохраните
