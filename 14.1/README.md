@@ -122,14 +122,32 @@ secret/domain-cert created
 ```
 
 ## 2
+- Переключил пространсто имен.
+- Создал в нем секрет nginx-cert на основе ранее созданных сертификатов.
+- применил [env_secret.yml](./pod/pod.yml) (разумеется не забыв в нем прописать целевое пространсво имен)
+- применил [configMap.yml](pod/configMap.yml) (разумеется не забыв в нем прописать целевое пространсво имен)
+- применил [pod.yml](pod/pod.yml)
 
 ```console
+kubectl config set-context --current --namespace stage
 root@control-plane-node-01:~/certs# kubectl create secret tls nginx-cert --cert=cert.crt --key=cert.key -n stage
 secret/nginx-cert created
-root@control-plane-node-01:~/certs# kubectl get secrets --all-namespaces 
-NAMESPACE   NAME          TYPE                DATA   AGE
-default     domain-cert   kubernetes.io/tls   2      14h
-stage       nginx-cert    kubernetes.io/tls   2      6s
+root@control-plane-node-01:~/devops-netology/14.1/pod# kubectl apply -f env_secret.yml 
+secret/mysecret created
+root@control-plane-node-01:~/devops-netology/14.1/pod# kubectl apply -f configMap.yml 
+configmap/nginx-config created
+root@control-plane-node-01:~/devops-netology/14.1/pod# kubectl get secrets 
+NAME         TYPE                DATA   AGE
+mysecret     Opaque              2      11m
+nginx-cert   kubernetes.io/tls   2      57m
+root@control-plane-node-01:~/devops-netology/14.1/pod# kubectl exec -it  my-pod -c nginx -- sh
+# echo $SECRET_PASSWORD
+Kr1pT0$t0yK0$tb
+# echo $SECRET_USERNAME
+megasudouser
+# ls /etc/nginx/ssl
+tls.crt  tls.key
+
 ```
 
 
