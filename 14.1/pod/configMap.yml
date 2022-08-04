@@ -5,7 +5,8 @@ metadata:
   name: nginx-config
 data:
   defalt.conf:
-    server {
+    server 
+    {
     listen       443 ssl;
     server_name  localhost;
 
@@ -54,4 +55,5 @@ data:
     #location ~ /\.ht {
     #    deny  all;
     #}
-}
+  }
+  

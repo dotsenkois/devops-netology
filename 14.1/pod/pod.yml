@@ -23,10 +23,9 @@ spec:
           optional: false # same as default; "mysecret" must exist
                           # and include a key named "password"
     ports:
-    - containerPort: 80
-      protocol: TCP
     - containerPort: 443
       protocol: TCP
+
     volumeMounts:
     - name: certs
       mountPath: "/etc/nginx/ssl"
@@ -34,6 +33,8 @@ spec:
     - name: config
       mountPath: /etc/nginx/conf.d
       readOnly: true
+
+
   volumes:
   - name: certs
     secret:
