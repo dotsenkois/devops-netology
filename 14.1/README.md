@@ -53,7 +53,7 @@ tls.key:  3243 bytes
 kubectl get secret domain-cert -o yaml
 kubectl get secret domain-cert -o json
 ```
-CAT
+CUT
 <details>
   <summary>kubectl get secret domain-cert -o yaml</summary>
 ```yaml
