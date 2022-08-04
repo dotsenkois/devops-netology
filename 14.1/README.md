@@ -128,8 +128,8 @@ secret/domain-cert created
 ## 2
 - Переключил пространсто имен.
 - Создал в нем секрет nginx-cert на основе ранее созданных сертификатов.
-- применил [env_secret.yml](./pod/env_secret.yml) (разумеется не забыв в нем прописать целевое пространсво имен)
-- применил [configMap.yml](pod/configMap.yml) (разумеется не забыв в нем прописать целевое пространсво имен)
+- применил [env_secret.yml](./pod/env_secret.yml)
+- применил [configMap.yml](pod/configMap.yml) (разумеется, не забыв в нем прописать целевое пространсво имен)
 - применил [pod.yml](pod/pod.yml)
 
 ```console
