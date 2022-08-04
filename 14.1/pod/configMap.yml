@@ -10,7 +10,7 @@ data:
     listen       443 ssl;
     server_name  localhost;
 
-      keepalive_timeout   60;
+    keepalive_timeout   60;
     ssl_certificate      /etc/nginx/ssl/tls.crt;
     ssl_certificate_key  /etc/nginx/ssl/tls.key;
     ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
