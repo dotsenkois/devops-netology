@@ -53,6 +53,7 @@ tls.key:  3243 bytes
 kubectl get secret domain-cert -o yaml
 kubectl get secret domain-cert -o json
 ```
+CAT
 <details>
   <summary>kubectl get secret domain-cert -o yaml</summary>
 ```yaml
@@ -124,7 +125,7 @@ secret/domain-cert created
 ## 2
 - Переключил пространсто имен.
 - Создал в нем секрет nginx-cert на основе ранее созданных сертификатов.
-- применил [env_secret.yml](./pod/pod.yml) (разумеется не забыв в нем прописать целевое пространсво имен)
+- применил [env_secret.yml](./pod/env_secret.yml) (разумеется не забыв в нем прописать целевое пространсво имен)
 - применил [configMap.yml](pod/configMap.yml) (разумеется не забыв в нем прописать целевое пространсво имен)
 - применил [pod.yml](pod/pod.yml)
 
