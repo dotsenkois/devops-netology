@@ -4,7 +4,7 @@ kind: ConfigMap
 metadata:
   name: nginx-config
 data:
-  defalt.conf:
+  defalt.conf: |
     server 
     {
     listen       443 ssl;
