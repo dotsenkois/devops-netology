@@ -55,7 +55,7 @@ spec:
         name: vault-data
       spec:
         accessModes: [ "ReadWriteOnce" ]
-        storageClassName: nfs-client
+        storageClassName: standard
         resources:
           requests:
             storage: 1Gi
