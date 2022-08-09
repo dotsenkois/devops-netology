@@ -261,3 +261,212 @@ Output: mount: /var/lib/kubelet/pods/234fbe56-d450-4906-acf5-72cb37c8f793/volume
 ```
 установка на worker ноды apt-get install -y nfs-common
 ```
+
+## Ошибка 2
+
+<details>
+  <summary>вывод консоли</summary>
+
+```console
+root@control-plane-node-01:~/k8s-lessons/Vault/demo/app# kubectl apply -f 00-cm.yaml 
+configmap/vault-agent-config created
+root@control-plane-node-01:~/k8s-lessons/Vault/demo/app# kubectl apply -f 01-dp.yaml 
+deployment.apps/vault-approle-demo created
+root@control-plane-node-01:~/k8s-lessons/Vault/demo/app# kubectl get po
+NAME                                  READY   STATUS     RESTARTS     AGE
+nfs-server-nfs-server-provisioner-0   1/1     Running    0            5h25m
+nginx-autoreload-7fc59bc88f-zgjkg     2/2     Running    0            3h8m
+vault-0                               1/1     Running    0            5h23m
+vault-approle-demo-fcf5cc6cc-vlpc7    1/2     NotReady   1 (3s ago)   8s
+
+root@control-plane-node-01:~/k8s-lessons/Vault/demo/app# kubectl describe pod vault-approle-demo-fcf5cc6cc-vlpc7 
+Name:         vault-approle-demo-fcf5cc6cc-vlpc7
+Namespace:    netology
+Priority:     0
+Node:         worker-node-01/10.130.0.51
+Start Time:   Tue, 09 Aug 2022 07:08:19 +0000
+Labels:       pod-template-hash=fcf5cc6cc
+              role=vault-approle-demo
+Annotations:  cni.projectcalico.org/containerID: 54a77b1338feb8287cad6fc22bcf374cd47d6693d445b10ddba4a9a16825d192
+              cni.projectcalico.org/podIP: 10.233.78.16/32
+              cni.projectcalico.org/podIPs: 10.233.78.16/32
+Status:       Running
+IP:           10.233.78.16
+IPs:
+  IP:           10.233.78.16
+Controlled By:  ReplicaSet/vault-approle-demo-fcf5cc6cc
+Init Containers:
+  init-app-config:
+    Container ID:  containerd://546081090fb0db2b83ae2b5be6b57af29471901ce1ecfb19492220c9fbaf69fe
+    Image:         vault:1.9.0
+    Image ID:      docker.io/library/vault@sha256:b16dc6ba7319005d281b34013da19012eb1713b16400d45b62e15c8f06e70d44
+    Port:          <none>
+    Host Port:     <none>
+    Args:
+      agent
+      -config=/etc/vault/config/vault-agent.hcl
+    State:          Terminated
+      Reason:       Completed
+      Exit Code:    0
+      Started:      Tue, 09 Aug 2022 07:08:20 +0000
+      Finished:     Tue, 09 Aug 2022 07:08:21 +0000
+    Ready:          True
+    Restart Count:  0
+    Environment:
+      SKIP_SETCAP:  true
+    Mounts:
+      /etc/vault/config from vault-config (rw)
+      /etc/vault/config/approle from approle-config (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-bmhqp (ro)
+Containers:
+  shell:
+    Container ID:   containerd://1367b1533aadac014e3f6d809ccd6bfd395b0dd7383d4c62b3d8e9ae80da56c8
+    Image:          busybox
+    Image ID:       docker.io/library/busybox@sha256:ef320ff10026a50cf5f0213d35537ce0041ac1d96e9b7800bafd8bc9eff6c693
+    Port:           <none>
+    Host Port:      <none>
+    State:          Running
+      Started:      Tue, 09 Aug 2022 07:08:24 +0000
+    Ready:          True
+    Restart Count:  0
+    Environment:    <none>
+    Mounts:
+      /app/config from approle-config (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-bmhqp (ro)
+  go-vault-approle:
+    Container ID:  containerd://48009af7a508b216ded445fd4abacdb0a77b17a9d36b59e14eb7314901ca1843
+    Image:         registry.gitlab.com/k11s-os/vault-approle-auth:718a4c6c
+    Image ID:      registry.gitlab.com/k11s-os/vault-approle-auth@sha256:d77a51298735937e38b4067b80fb82e6bdc444c428664cdcc1c37107ea57e1cf
+    Port:          <none>
+    Host Port:     <none>
+    Command:
+      /app/vaultauth
+    State:          Waiting
+      Reason:       CrashLoopBackOff
+    Last State:     Terminated
+      Reason:       Completed
+      Exit Code:    0
+      Started:      Tue, 09 Aug 2022 07:08:43 +0000
+      Finished:     Tue, 09 Aug 2022 07:08:43 +0000
+    Ready:          False
+    Restart Count:  2
+    Limits:
+      cpu:     500m
+      memory:  500Mi
+    Requests:
+      cpu:     200m
+      memory:  200Mi
+    Environment:
+      APPROLE_ROLE_ID:               <set to the key 'app-role-id' of config map 'vault-agent-config'>  Optional: false
+      APPROLE_WRAPPEN_TOKEN_FILE:    /app/config/wrapped_token
+      APPROLE_UNWRAPPEN_TOKEN_FILE:  /app/config/unwrapped_token
+      APPROLE_VAULT_ADDR:            http://vault:8200
+      APPROLE_SECRET_PATH:           secrets/data/k11s/demo/app/service
+    Mounts:
+      /app/config from approle-config (rw)
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-bmhqp (ro)
+Conditions:
+  Type              Status
+  Initialized       True 
+  Ready             False 
+  ContainersReady   False 
+  PodScheduled      True 
+Volumes:
+  vault-config:
+    Type:      ConfigMap (a volume populated by a ConfigMap)
+    Name:      vault-agent-config
+    Optional:  false
+  approle-config:
+    Type:       EmptyDir (a temporary directory that shares a pod's lifetime)
+    Medium:     Memory
+    SizeLimit:  <unset>
+  kube-api-access-bmhqp:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    ConfigMapOptional:       <nil>
+    DownwardAPI:             true
+QoS Class:                   Burstable
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type     Reason     Age                From               Message
+  ----     ------     ----               ----               -------
+  Normal   Scheduled  45s                default-scheduler  Successfully assigned netology/vault-approle-demo-fcf5cc6cc-vlpc7 to worker-node-01
+  Normal   Pulled     45s                kubelet            Container image "vault:1.9.0" already present on machine
+  Normal   Created    45s                kubelet            Created container init-app-config
+  Normal   Started    45s                kubelet            Started container init-app-config
+  Normal   Pulling    43s                kubelet            Pulling image "busybox"
+  Normal   Pulled     41s                kubelet            Successfully pulled image "busybox" in 1.420917403s
+  Normal   Created    41s                kubelet            Created container shell
+  Normal   Started    41s                kubelet            Started container shell
+  Normal   Pulled     22s (x3 over 41s)  kubelet            Container image "registry.gitlab.com/k11s-os/vault-approle-auth:718a4c6c" already present on machine
+  Normal   Created    22s (x3 over 41s)  kubelet            Created container go-vault-approle
+  Normal   Started    22s (x3 over 41s)  kubelet            Started container go-vault-approle
+  Warning  BackOff    7s (x4 over 39s)   kubelet            Back-off restarting failed container
+```
+
+</details>
+
+видно, что переменная среды не применяется:
+
+```
+    Environment:
+      APPROLE_ROLE_ID:               <set to the key 'app-role-id' of config map 'vault-agent-config'>  Optional: false
+```
+Но в конфигурации она фигурирует:
+```console
+root@control-plane-node-01:~# kubectl describe configmaps vault-agent-config
+Name:         vault-agent-config
+Namespace:    netology
+Labels:       <none>
+Annotations:  <none>
+
+Data
+====
+app-role-id:
+----
+ded61934-b7c5-dadf-a1a6-f6355f08bfcf
+
+vault-agent.hcl:
+----
+pid_file = "/tmp/.pidfile"
+
+auto_auth {
+  mount_path = "auth/approle"
+  method "approle" {
+    config = {
+      role_id_file_path = "/etc/vault/config/app-role-id"
+    }
+  }
+
+  sink {
+      type = "file"
+      wrap_ttl = "3m"
+      config = {
+        path = "/etc/vault/config/approle/wrapped_token"
+        mode = 0777
+      }
+    }
+
+  sink {
+    type = "file"
+    config = {
+      path = "/etc/vault/config/approle/unwrapped_token"
+      mode = 0777
+      }
+    }
+}
+
+vault {
+  address = "http://vault:8200"
+}
+exit_after_auth = true
+
+
+BinaryData
+====
+
+Events:  <none>
+```
