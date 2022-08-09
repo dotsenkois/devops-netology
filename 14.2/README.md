@@ -470,3 +470,10 @@ BinaryData
 
 Events:  <none>
 ```
+
+Добавление значения перменной напраямую в описание деплоймента проблему запуска контейнера не решило.
+
+```
+root@control-plane-node-01:~/k8s-lessons/Vault/demo/app# kubectl logs pods/vault-approle-demo-5644966c44-7cq5k
+Defaulted container "shell" out of: shell, go-vault-approle, init-app-config (init)
+```
