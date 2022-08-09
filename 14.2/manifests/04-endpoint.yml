@@ -1,0 +1,12 @@
+---
+apiVersion: v1
+kind: Endpoints
+metadata:
+  name: vault
+subsets: 
+  - addresses:
+      - ip: 51.250.39.130
+    ports:
+      - port: 8200
+        targetPort: 8200
+        name: http
