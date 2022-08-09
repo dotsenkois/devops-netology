@@ -8,5 +8,4 @@ subsets:
       - ip: 51.250.39.130
     ports:
       - port: 8200
-        targetPort: 8200
         name: http

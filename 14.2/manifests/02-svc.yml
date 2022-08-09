@@ -4,9 +4,11 @@ kind: Service
 metadata:
   name: vault
 spec:
-  clusterIP: None
   ports:
     - name: http
       port: 8200
+      targetPort: 8200
+      nodePort: 32000
   selector:
     app: vault
+  type: NodePort

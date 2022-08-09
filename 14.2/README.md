@@ -2,7 +2,7 @@
 
 ## Решение
 
-## 1
+## Задание 1
 
 Запустить модуль Vault конфигураций через утилиту kubectl в установленном minikube
 
@@ -145,8 +145,9 @@ True
 {'netology': 'Big secret!!!'}
 ```
 
-## 2
+## Задание 2
 
+![Скриншот](./14.2.2.1.png)
 
 
 ## Задача 1: Работа с модулем Vault
@@ -231,59 +232,6 @@ nfs-client-provisioner-1659948102-57c9cb8b69-gm4tw   0/1     ContainerCreating  
 nfs-server-nfs-server-provisioner-0                  1/1     Running             0          3h4m
 vault-0                                              0/1     ContainerCreating   0          157m
 root@control-plane-node-01:~/k8s-lessons/Vault/manifests# kubectl describe pod nfs-client-provisioner-1659948102-57c9cb8b69-gm4tw 
-Name:           nfs-client-provisioner-1659948102-57c9cb8b69-gm4tw
-Namespace:      netology
-Priority:       0
-Node:           worker-node-01/10.130.0.51
-Start Time:     Mon, 08 Aug 2022 08:41:45 +0000
-Labels:         app=nfs-client-provisioner
-                pod-template-hash=57c9cb8b69
-                release=nfs-client-provisioner-1659948102
-Annotations:    <none>
-Status:         Pending
-IP:             
-IPs:            <none>
-Controlled By:  ReplicaSet/nfs-client-provisioner-1659948102-57c9cb8b69
-Containers:
-  nfs-client-provisioner:
-    Container ID:   
-    Image:          quay.io/external_storage/nfs-client-provisioner:v3.1.0-k8s1.11
-    Image ID:       
-    Port:           <none>
-    Host Port:      <none>
-    State:          Waiting
-      Reason:       ContainerCreating
-    Ready:          False
-    Restart Count:  0
-    Environment:
-      PROVISIONER_NAME:  cluster.local/nfs-client-provisioner-1659948102
-      NFS_SERVER:        10.130.0.20
-      NFS_PATH:          /exported/path
-    Mounts:
-      /persistentvolumes from nfs-client-root (rw)
-      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-zmh9s (ro)
-Conditions:
-  Type              Status
-  Initialized       True 
-  Ready             False 
-  ContainersReady   False 
-  PodScheduled      True 
-Volumes:
-  nfs-client-root:
-    Type:      NFS (an NFS mount that lasts the lifetime of a pod)
-    Server:    10.130.0.20
-    Path:      /exported/path
-    ReadOnly:  false
-  kube-api-access-zmh9s:
-    Type:                    Projected (a volume that contains injected data from multiple sources)
-    TokenExpirationSeconds:  3607
-    ConfigMapName:           kube-root-ca.crt
-    ConfigMapOptional:       <nil>
-    DownwardAPI:             true
-QoS Class:                   BestEffort
-Node-Selectors:              <none>
-Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
-                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
 Events:
   Type     Reason       Age                    From     Message
   ----     ------       ----                   ----     -------
@@ -294,68 +242,7 @@ Mounting arguments: -t nfs 10.130.0.20:/exported/path /var/lib/kubelet/pods/b8f5
 Output: mount: /var/lib/kubelet/pods/b8f56731-986c-4539-816e-460f5e437250/volumes/kubernetes.io~nfs/nfs-client-root: bad option; for several filesystems (e.g. nfs, cifs) you might need a /sbin/mount.<type> helper program.
   Warning  FailedMount  2m54s (x54 over 157m)  kubelet  Unable to attach or mount volumes: unmounted volumes=[nfs-client-root], unattached volumes=[nfs-client-root kube-api-access-zmh9s]: timed out waiting for the condition
 root@control-plane-node-01:~/k8s-lessons/Vault/manifests# kubectl describe pod vault-0 
-Name:           vault-0
-Namespace:      netology
-Priority:       0
-Node:           worker-node-01/10.130.0.51
-Start Time:     Mon, 08 Aug 2022 08:43:43 +0000
-Labels:         app=vault
-                controller-revision-hash=vault-857dfc99b5
-                statefulset.kubernetes.io/pod-name=vault-0
-Annotations:    <none>
-Status:         Pending
-IP:             
-IPs:            <none>
-Controlled By:  StatefulSet/vault
-Containers:
-  vault:
-    Container ID:  
-    Image:         vault:1.9.0
-    Image ID:      
-    Port:          8200/TCP
-    Host Port:     0/TCP
-    Args:
-      server
-      -config=/etc/vault/config/vault.hcl
-    State:          Waiting
-      Reason:       ContainerCreating
-    Ready:          False
-    Restart Count:  0
-    Requests:
-      cpu:     500m
-      memory:  1Gi
-    Environment:
-      VAULT_ADDR:  http://127.0.0.1:8200
-    Mounts:
-      /etc/vault/config from config (rw)
-      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-hjgmk (ro)
-      /vault/data from vault-data (rw)
-Conditions:
-  Type              Status
-  Initialized       True 
-  Ready             False 
-  ContainersReady   False 
-  PodScheduled      True 
-Volumes:
-  vault-data:
-    Type:       PersistentVolumeClaim (a reference to a PersistentVolumeClaim in the same namespace)
-    ClaimName:  vault-data-vault-0
-    ReadOnly:   false
-  config:
-    Type:      ConfigMap (a volume populated by a ConfigMap)
-    Name:      vault-config
-    Optional:  false
-  kube-api-access-hjgmk:
-    Type:                    Projected (a volume that contains injected data from multiple sources)
-    TokenExpirationSeconds:  3607
-    ConfigMapName:           kube-root-ca.crt
-    ConfigMapOptional:       <nil>
-    DownwardAPI:             true
-QoS Class:                   Burstable
-Node-Selectors:              <none>
-Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
-                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
-Events:
+\Events:
   Type     Reason       Age                    From     Message
   ----     ------       ----                   ----     -------
   Warning  FailedMount  47m (x17 over 146m)    kubelet  Unable to attach or mount volumes: unmounted volumes=[vault-data], unattached volumes=[vault-data kube-api-access-hjgmk config]: timed out waiting for the condition
@@ -366,4 +253,9 @@ Mounting arguments: -t nfs -o vers=3 10.233.13.202:/export/pvc-fb1dc2cc-1101-430
 Output: mount: /var/lib/kubelet/pods/234fbe56-d450-4906-acf5-72cb37c8f793/volumes/kubernetes.io~nfs/pvc-fb1dc2cc-1101-4307-9c4a-1410b4e7e861: bad option; for several filesystems (e.g. nfs, cifs) you might need a /sbin/mount.<type> helper program.
   Warning  FailedMount  104s (x11 over 153m)  kubelet  Unable to attach or mount volumes: unmounted volumes=[vault-data], unattached volumes=[kube-api-access-hjgmk config vault-data]: timed out waiting for the condition
 
-``` 
+```
+Решение проблемы:
+
+```
+установка на worker ноды apt-get install -y nfs-common
+```
