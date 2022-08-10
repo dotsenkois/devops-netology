@@ -15,6 +15,11 @@ spec:
           configMapKeyRef:
             name: nginx-config
             key: nginx.conf
+      - name: DOTSENKOIS
+        valueFrom:
+          configMapKeyRef:
+            name: dotsenkois
+            key: variable
     envFrom:
       - configMapRef:
           name: nginx-config

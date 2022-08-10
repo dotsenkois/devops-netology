@@ -1,0 +1,20 @@
+apiVersion: v1
+data:
+  nginx.conf: |
+    server {
+        listen 80;
+        server_name  netology.ru www.netology.ru;
+        access_log  /var/log/nginx/domains/netology.ru-access.log  main;
+        error_log   /var/log/nginx/domains/netology.ru-error.log info;
+        location / {
+            include proxy_params;
+            proxy_pass http://10.10.10.10:8080/;
+        }
+    }
+kind: ConfigMap
+metadata:
+  creationTimestamp: "2022-08-10T01:27:18Z"
+  name: nginx-config
+  namespace: 14-3
+  resourceVersion: "296467"
+  uid: 092fd3fe-0a92-48ce-9d25-31684ec90299
