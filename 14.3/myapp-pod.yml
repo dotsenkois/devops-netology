@@ -8,7 +8,7 @@ spec:
   - name: myapp
     image: fedora:latest
     command: ['/bin/bash', '-c']
-    args: ["env; ls -la /etc/nginx/conf.d"]
+    args: ["env; ls -la /etc/nginx/conf.d; cat /tmp/test"]
     env:
       - name: SPECIAL_LEVEL_KEY
         valueFrom:
@@ -27,7 +27,13 @@ spec:
       - name: config
         mountPath: /etc/nginx/conf.d
         readOnly: true
+      - name: test
+        mountPath: /tmp
+        readOnly: true
   volumes:
   - name: config
     configMap:
       name: nginx-config
+  - name: test
+    configMap:
+      name: test

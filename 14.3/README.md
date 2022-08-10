@@ -125,7 +125,7 @@ configmap/nginx-config created
 ## Задание 2
 
 - За оснву взят конфиг пода [myapp-pod.yml](./myapp-pod.yml)
-- Добавилена секция:
+- Добавилены секции:
 
 ```yaml
       - name: DOTSENKOIS
@@ -134,7 +134,25 @@ configmap/nginx-config created
             name: dotsenkois
             key: variable
 ```
-- Создана карта конфигурации [dotsenkois.yml](./dotsenkois.yml)
+```yaml
+    volumeMounts:
+      - name: config
+        mountPath: /etc/nginx/conf.d
+        readOnly: true
+      - name: test
+        mountPath: /tmp
+        readOnly: true
+  volumes:
+  - name: config
+    configMap:
+      name: nginx-config
+  - name: test
+    configMap:
+      name: test
+
+```
+
+- Созданы карты конфигурации [dotsenkois.yml](./dotsenkois.yml) и [test.yml](./test.yml)
 
 
 ```console
@@ -155,12 +173,31 @@ BinaryData
 ====
 
 Events:  <none>
+root@control-plane-node-01:~/devops-netology/14.3# kubectl describe configmaps test 
+Name:         test
+Namespace:    14-3
+Labels:       <none>
+Annotations:  <none>
+
+Data
+====
+test:
+----
+bla-bla-bla
+  foo
+
+
+BinaryData
+====
+
+Events:  <none>
 ```
 
 - вывод логов приложения:
 ```
     command: ['/bin/bash', '-c']
-    args: ["env; ls -la /etc/nginx/conf.d"]
+    args: ["env; ls -la /etc/nginx/conf.d; cat /tmp/test"]
+
 ```
 
 ![14.3.2.png](./14.3.2.png)
