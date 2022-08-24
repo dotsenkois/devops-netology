@@ -1,5 +1,7 @@
 # Домашнее задание к занятию "14.5 SecurityContext, NetworkPolicies"
 
+## Решение
+
 ## Задача 1: Рассмотрите пример 14.5/example-security-context.yml
 
 Создайте модуль
@@ -14,6 +16,36 @@ pod/security-context-demo created
 
 ```
 root@control-plane-node-01:~/devops-netology/14.5# kubectl logs security-context-demo
+uid=1000 gid=3000 groups=3000
+```
+
+## Задача 2 (*): Рассмотрите пример 14.5/example-network-policy.yml
+
+2 приложения:
+
+- [frontend](./manifests/10-frontend.yaml)
+- [backend](./manifests/20-backend.yaml)
+
+3 политки:
+
+- [dns](./53.yaml)
+- [frontend](./frontend-np.yml)
+- [backend](./backend-np.yml)
+
+## Задание
+
+## Задача 1: Рассмотрите пример 14.5/example-security-context.yml
+
+Создайте модуль
+
+```
+kubectl apply -f 14.5/example-security-context.yml
+```
+
+Проверьте установленные настройки внутри контейнера
+
+```
+kubectl logs security-context-demo
 uid=1000 gid=3000 groups=3000
 ```
 
