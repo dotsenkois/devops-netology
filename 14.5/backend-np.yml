@@ -8,26 +8,22 @@ spec:
     matchLabels:
       app: backend
   policyTypes:
-  # - Ingress
+  - Ingress
   - Egress
-  # ingress:
-  # - from:
-  #   - podSelector:
-  #       matchLabels:
-  #         app: frontend
-  #   ports:
-  #     - protocol: TCP
-  #       port: 80
-  #     - protocol: TCP
-  #       port: 443
-
+  ingress:
+  - from:
+    - podSelector:
+        matchLabels:
+          app: frontend
+    ports:
+    - protocol: TCP
+      port: 80
   egress:
   - to:
     - podSelector:
-          matchLabels:
-            app: frontend
+        matchLabels:
+          app: frontend
     ports:
-        - protocol: TCP
-          port: 80
-        - protocol: TCP
-          port: 443
+    - protocol: TCP
+      port: 80
+      
