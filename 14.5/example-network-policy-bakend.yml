@@ -25,4 +25,4 @@ spec:
   - to:
     - podSelector:
         matchLabels:
-          app: backend
+          app: frontend
