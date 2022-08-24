@@ -13,7 +13,7 @@ spec:
   ingress:
   - from:
     - ipBlock:
-        cidr: 10.233.0.0/16
+        cidr: 10.130.0.0/16
     ports:
       - protocol: TCP
         port: 80
@@ -22,7 +22,7 @@ spec:
   egress:
     - to:
       - ipBlock:
-          cidr: 10.233.0.0/16
+          cidr: 10.130.0.0/16
       ports:
       - protocol: TCP
         port: 80
