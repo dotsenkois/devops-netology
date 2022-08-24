@@ -21,6 +21,19 @@ uid=1000 gid=3000 groups=3000
 
 ## Задача 2 (*): Рассмотрите пример 14.5/example-network-policy.yml
 
+```bash
+#!/bin/bash
+
+echo "From frontend"
+kubectl exec frontend-c74c5646c-77w4t -- curl -s -m 1 http://curl.org | grep title
+kubectl exec frontend-c74c5646c-77w4t -- curl -s -m 1 backend
+
+echo "From backend"
+kubectl exec backend-869fd89bdc-qfjbr -- curl -s -m 1 frontend
+kubectl exec backend-869fd89bdc-qfjbr -- curl -s -m 1 http://curl.org | grep title
+
+```
+
 2 приложения:
 
 - [frontend](./manifests/10-frontend.yaml)
@@ -31,6 +44,16 @@ uid=1000 gid=3000 groups=3000
 - [dns](./53.yaml)
 - [frontend](./frontend-np.yml)
 - [backend](./backend-np.yml)
+
+```Console
+root@control-plane-node-01:~/devops-netology/14.5# ./manifests/sh.sh 
+From frontend
+<title>301 Moved Permanently</title>
+Praqma Network MultiTool (with NGINX) - backend-869fd89bdc-qfjbr - 10.233.78.105
+From backend
+Praqma Network MultiTool (with NGINX) - frontend-c74c5646c-77w4t - 10.233.78.104
+command terminated with exit code 28
+```
 
 ## Задание
 
