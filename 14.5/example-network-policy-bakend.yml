@@ -12,8 +12,9 @@ spec:
   - Egress
   ingress:
   - from:
-    - ipBlock:
-        cidr: 10.130.0.0/16
+    - podSelector:
+        matchLabels:
+          app: frontend
     ports:
       - protocol: TCP
         port: 80
@@ -21,8 +22,9 @@ spec:
         port: 443
   egress:
     - to:
-      - ipBlock:
-          cidr: 10.130.0.0/16
+      - podSelector:
+          matchLabels:
+            app: frontend
       ports:
       - protocol: TCP
         port: 80
