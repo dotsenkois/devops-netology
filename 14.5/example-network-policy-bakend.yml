@@ -14,7 +14,7 @@ spec:
   - from:
     - podSelector:
         matchLabels:
-          app: backend
+          app: frontend
     - namespaceSelector:
         matchLabels:
           namespace: 14-5
@@ -25,7 +25,7 @@ spec:
     - to:
       - podSelector:
           matchLabels:
-            app: backend
+            app: frontend
       - namespaceSelector:
           matchLabels:
             namespace: 14-5
