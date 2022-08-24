@@ -23,6 +23,3 @@ spec:
       - podSelector:
           matchLabels:
             app: frontend
-      ports:
-      - protocol: TCP
-        port: 80
