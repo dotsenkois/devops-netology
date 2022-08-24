@@ -8,8 +8,8 @@ spec:
     matchLabels:
       app: backend
   policyTypes:
-  - Ingress
-  #- Egress
+  # - Ingress
+  - Egress
   # ingress:
   # - from:
   #   - podSelector:
