@@ -22,11 +22,9 @@ spec:
         port: 443
   egress:
     - to:
-      - podSelector:
-          matchLabels:
-            app: frontend
+      - ipBlock:
+          cidr: 10.233.78.102 
       ports:
       - protocol: TCP
         port: 80
-      - protocol: TCP
-        port: 443
+        endPort: 443
