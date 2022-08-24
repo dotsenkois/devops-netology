@@ -12,14 +12,15 @@ spec:
   - Egress
   ingress:
   - from:
+    - namespaceSelector:
+        matchLabels:
+          namespace: 14-5
     - ipBlock:
         cidr: 0.0.0.0/0
     ports:
       - protocol: TCP
         port: 80
-      - namespaceSelector:
-        matchLabels:
-          namespace: 14-5
+
   egress:
     - ipBlock:
         cidr: 0.0.0.0/0
