@@ -23,6 +23,8 @@ spec:
 
   egress:
   - to:
-    - podSelector:
-        matchLabels:
-          app: frontend
+    - ipBlock:
+        cidr: 10.233.78.0/24
+    ports:
+    - protocol: TCP
+      port: 80
