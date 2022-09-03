@@ -4,6 +4,10 @@
 
 Конфигурация подната с помощью [terraform](./yc-tf/main.tf).
 
+[проверка точки выхода в интернет](https://cloud.yandex.ru/docs/tutorials/routing/nat-instance)
+
+curl ifconfig.co
+
 ![Проверка работоспособновти NAT-instance](./curl_ifconfig.co.png)
 
 openVPN сервер настроен руками: добавлена группа "auto-login", создан пользователь, скачан файл конфигурации и ипортирован в openVPN клиент установленный в  виртуальной машине, работающей на локальном компьютере.
