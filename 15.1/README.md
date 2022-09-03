@@ -2,7 +2,7 @@
 
 ## Решение
 
-Конфигурация подната с помощью [terraform](./yc-tf/main.tf).
+Конфигурация инфраструктуры выполнена с помощью [terraform](./yc-tf/main.tf).
 
 [проверка точки выхода в интернет](https://cloud.yandex.ru/docs/tutorials/routing/nat-instance)
 
