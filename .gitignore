@@ -182,10 +182,12 @@
 09-ci-04-jenkins/terraform/.terraform/providers/registry.terraform.io/yandex-cloud/yandex/0.71.0/linux_amd64/terraform-provider-yandex_v0.71.0
 09-ci-04-jenkins/terraform/.terraform.lock.hcl
 cloud_config.yaml
-**/.terraform/*
+**/.terraform*
 **/terraform.tfstate.backup
 **/terraform.tfstate
 **/.terraform.lock.hcl
 Untitled-1.py
 **/*.terraform.tfstate.lock.info
 13-tf_for_kube/*
+15.1/yc-tf/keys.bkp
+15.1/yc-tf/00.backend.tf
