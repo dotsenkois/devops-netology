@@ -6,9 +6,3 @@ users:
     passwd: $6$rounds=4096$2lnfl.BvbQyhFZDJ$uSLTNFXlqGV0kf6nIiE3nMJHJ.XPch5WF5OWg2T5tw8qSw3yNvNTMtKepItJowUM.emgaYd1baoyoLQI6GPgJ/
     ssh_authorized_keys:
       - ssh-rsa 
-bootcmd:
-  - yum install httpd -y
-  - service httpd start
-  - chkconfig httpd on
-  - cd /var/www/html
-  - echo "<html><h1>My cool web-server $(hostname)</h1><body><img src='http://15.2-dotsenkois-2.website.yandexcloud.net/wallpaper.jpeg' alt='Обои Ubuntu'></body></html>" > index.html

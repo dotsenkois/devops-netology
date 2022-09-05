@@ -6,7 +6,22 @@
 
 ![Статичный сайт](./yc.01.s3.png)
 
-## 2    
+## 2 Создать группу ВМ
+
+![Группа ВМ](yc.02.vm-group.png)
+
+## 3 nlb
+```console
+dotsenkois@dotsenkois-vm:~$ curl http://84.201.174.68/
+<html><h1>My cool web-server cl1uo9in3gedt6232edp-arim</h1><body><img src="http://15.2-dotsenkois-2.website.yandexcloud.net/wallpaper.jpeg" alt="Обои Ubuntu"></body></html>
+dotsenkois@dotsenkois-vm:~$ curl http://84.201.174.68/
+<html><h1>My cool web-server cl1uo9in3gedt6232edp-egyk</h1><body><img src="http://15.2-dotsenkois-2.website.yandexcloud.net/wallpaper.jpeg" alt="Обои Ubuntu"></body></html>
+dotsenkois@dotsenkois-vm:~$ curl http://84.201.174.68/
+<html><h1>My cool web-server cl1uo9in3gedt6232edp-ivem</h1><body><img src="http://15.2-dotsenkois-2.website.yandexcloud.net/wallpaper.jpeg" alt="Обои Ubuntu"></body></html>
+
+``` 
+
+## 4 alb
 
 # Домашнее задание к занятию 15.2 "Вычислительные мощности. Балансировщики нагрузки".
 Домашнее задание будет состоять из обязательной части, которую необходимо выполнить на провайдере Яндекс.Облако, и дополнительной части в AWS (можно выполнить по желанию). Все домашние задания в 15 блоке связаны друг с другом и в конце представляют пример законченной инфраструктуры.

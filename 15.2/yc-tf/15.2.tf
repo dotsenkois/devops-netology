@@ -109,6 +109,7 @@ resource "yandex_compute_instance_group" "ig-2" {
 
     metadata = {
       user-data = file("${path.module}/cloud_config.yaml")
+      user-data = file("./bootstrap.sh")
     }
   }
 
@@ -126,10 +127,13 @@ resource "yandex_compute_instance_group" "ig-2" {
     max_unavailable = 1
     max_expansion = 0
   }
+
+  # 3
   load_balancer {
     target_group_name        = "target-group"
     target_group_description = "load balancer target group"
   }
+
 
   
 }
@@ -172,3 +176,5 @@ resource "yandex_lb_network_load_balancer" "web" {
     }
   }
 }
+
+# 4
