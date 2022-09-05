@@ -1,6 +1,6 @@
 ## Задание 1. Создать bucket S3 и разместить там файл с картинкой.
 
-resource "yandex_iam_service_account" "bucket-sa" {
+resource "yandex_iam_service_account" "bucket-sa-1" {
   name      = "bucket-sa-1"
 }
 
@@ -8,12 +8,12 @@ resource "yandex_iam_service_account" "bucket-sa" {
 resource "yandex_resourcemanager_folder_iam_member" "sa-editor" {
   folder_id = var.yc_folder_id
   role      = "editor"
-  member    = "serviceAccount:${yandex_iam_service_account.bucket-sa.id}"
+  member    = "serviceAccount:${yandex_iam_service_account.bucket-sa-1.id}"
 }
 
 // Создание статического ключа доступа
 resource "yandex_iam_service_account_static_access_key" "sa-static-key" {
-  service_account_id = yandex_iam_service_account.bucket-sa.id
+  service_account_id = yandex_iam_service_account.bucket-sa-1.id
   description        = "static access key for bucket-sa object storage"
 }
 
