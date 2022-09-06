@@ -1,10 +1,11 @@
+
 resource "yandex_mdb_mysql_cluster" "mysql-netology" {
   name                = "mysql-netology"
   environment         = "PRESTABLE"
   network_id          =  yandex_vpc_network.db-network.id
   version             = "8.0"
   security_group_ids  = [ yandex_vpc_security_group.db-security.id ]
-  deletion_protection = true
+  deletion_protection = false
 
   resources {
     resource_preset_id = "s1.medium"
@@ -13,13 +14,15 @@ resource "yandex_mdb_mysql_cluster" "mysql-netology" {
   }
 
 host {
-    zone      = var.yc_zone
-    subnet_id = yandex_vpc_subnet.private-zone-a.id
+    zone      = yandex_vpc_subnet.db-zone-a.zone
+    subnet_id = yandex_vpc_subnet.db-zone-a.id
   }
 host {
-    zone      = var.yc_zone
-    subnet_id = yandex_vpc_subnet.private-zone-b.id
+    zone      = yandex_vpc_subnet.db-zone-b.zone
+    subnet_id = yandex_vpc_subnet.db-zone-b.id
   }
+
+
 
 maintenance_window {
     type =  "WEEKLY"
