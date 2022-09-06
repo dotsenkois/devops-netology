@@ -1,4 +1,3 @@
-
 resource "yandex_mdb_mysql_cluster" "mysql-netology" {
   name                = "mysql-netology"
   environment         = "PRESTABLE"
@@ -9,30 +8,37 @@ resource "yandex_mdb_mysql_cluster" "mysql-netology" {
 
   resources {
     resource_preset_id = "s1.medium"
-    disk_type_id       = "network-hdd"
+    disk_type_id       = "network-ssd"
     disk_size          = 20
+
   }
 
 host {
     zone      = yandex_vpc_subnet.db-zone-a.zone
     subnet_id = yandex_vpc_subnet.db-zone-a.id
+    name = "node-a-1"
   }
 host {
     zone      = yandex_vpc_subnet.db-zone-b.zone
     subnet_id = yandex_vpc_subnet.db-zone-b.id
+    name = "node-b-1"
+    replication_source_name = "node-a-1"
   }
-
 
 
 maintenance_window {
-    type =  "WEEKLY"
-    day  = "SAT"
-    hour = 23
+    type = "ANYTIME"
   }
+
 backup_window_start {
     hours   = 23
     minutes = 59
   }
+
+    depends_on = [
+     yandex_vpc_subnet.db-zone-a,
+     yandex_vpc_subnet.db-zone-b
+   ]
 }
 
 resource "yandex_mdb_mysql_database" "netology_db" {

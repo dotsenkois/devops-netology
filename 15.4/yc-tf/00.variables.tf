@@ -6,5 +6,5 @@ variable "yc_zone" {
 
 variable "yc_folder_id" {
   type    = string
-  default = "b1gjd4mb2m0eciop8oei"
+  default = "b1g9g2jud9i76plj3pua"
 }

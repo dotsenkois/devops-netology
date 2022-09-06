@@ -1,7 +1,7 @@
 
 resource "null_resource" "kubeconfig" {
   provisioner "local-exec" {
-    command = "yc managed-kubernetes cluster get-credentials ${yandex_kubernetes_cluster.k8s-netology.id} --external"
+    command = "yc managed-kubernetes cluster get-credentials ${yandex_kubernetes_cluster.k8s-netology.id} --external --force"
   }
 
   depends_on = [
@@ -52,24 +52,36 @@ spec:
             - name: MYSQL_ROOT_PASSWORD
               value: "password"
 ---
+
 apiVersion: v1
 kind: Service
 metadata:
   name: phpmyadmin-service
 spec:
-  type: NodePort
   selector:
     app: phpmyadmin
   ports:
-  - protocol: TCP
-    port: 80
-    targetPort: 80
+    - port: 80
+      targetPort: 80
+  type: LoadBalancer
+
+
 
 EOT
 
   depends_on = [
     null_resource.kubeconfig,
-    yandex_mdb_mysql_cluster.mysql-netology
+    yandex_mdb_mysql_cluster.mysql-netology,
+    yandex_kubernetes_cluster.k8s-netology
   ]
 }
 
+resource "null_resource" "manifests" {
+  provisioner "local-exec" {
+    command = "kubectl apply -f ../mainfests/01.php.yml "
+  }
+
+  depends_on = [
+    local_file.connect-to-db
+  ]
+}
