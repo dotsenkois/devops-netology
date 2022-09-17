@@ -16,7 +16,7 @@ resource "yandex_kubernetes_node_group" "k8s-netology-node-group" {
         platform_id = "standard-v2"
     network_interface {
       subnet_ids = [yandex_vpc_subnet.k8s-private-zone-a.id]
-      nat = true
+      nat = false
     }
 }
   scale_policy {
@@ -26,4 +26,7 @@ resource "yandex_kubernetes_node_group" "k8s-netology-node-group" {
       initial = 3
     }
   }
+  scheduling_policy {
+      preemptible = true
+    }
 }

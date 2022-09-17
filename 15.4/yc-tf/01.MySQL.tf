@@ -7,7 +7,7 @@ resource "yandex_mdb_mysql_cluster" "mysql-netology" {
   deletion_protection = false
 
   resources {
-    resource_preset_id = "s1.medium"
+    resource_preset_id = "b1.medium"
     disk_type_id       = "network-ssd"
     disk_size          = 20
 

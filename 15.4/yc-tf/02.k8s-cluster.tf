@@ -25,6 +25,24 @@ resource "yandex_kubernetes_cluster" "k8s-netology" {
       }
     }
  }
+    maintenance_policy {
+      auto_upgrade = true
+
+      maintenance_window {
+        day        = "sunday"
+        start_time = "03:00"
+        duration   = "5h"
+      }
+
+      maintenance_window {
+        day        = "Thursday"
+        start_time = "03:00"
+        duration   = "5h"
+      }
+    }
+
+
+
  service_account_id      = yandex_iam_service_account.k8s-sa.id
  node_service_account_id = yandex_iam_service_account.k8s-sa.id
   depends_on = [
