@@ -14,7 +14,7 @@
     #   register: download_java_binaries
     #   until: download_java_binaries is succeeded
     #   tags: java
-    - name: download_java
+    - name: Download_java
       get_url:
         url: "https://download.oracle.com/java/17/latest/jdk-17_linux-x64_bin.tar.gz"
         dest: "/tmp/jdk-17_linux-x64_bin.tar.gz"
