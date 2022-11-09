@@ -3,11 +3,11 @@
 
 ## Установка
 ```bash
-wget https://github.com/splunk/qbec/releases/download/v0.15.2/qbec-linux-amd64.tar.gz
-gunzip qbec-linux-amd64.tar.gz
-tar xf qbec-linux-amd64.tar
-sudo mv qbec /usr/local/bin
-qbec completion | sudo tee /etc/bash_completion.d/qbec
+    wget https://github.com/splunk/qbec/releases/download/v0.15.2/qbec-linux-amd64.tar.gz
+    gunzip qbec-linux-amd64.tar.gz
+    tar xf qbec-linux-amd64.tar
+    sudo mv qbec /usr/local/bin
+    qbec completion | sudo tee /etc/bash_completion.d/qbec
 qbec init neto --with-example
 ```
 ## Решение
